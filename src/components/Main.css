@@ -1,0 +1,76 @@
+
+/* Leftmost selection Bar */
+.select__bar{
+ background-color: blueviolet;
+ height: 100vh;
+ display: flex;
+ max-width: 70px;
+ padding-top: 100px;
+ padding-left: 10px;
+ padding-right: 10px;
+ flex-direction: column;
+}
+
+
+/* Main Component */
+
+.main__container{
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    background-color: black;
+}
+
+.right__container, .left__container{
+    border: 1px solid #eee;
+    
+    flex-basis: 50%;
+    max-height: 100vh;
+}
+
+.content__area{
+    display: flex;
+    margin-top: 80px ;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+    height: auto;
+}
+
+/* Left container */
+
+
+.left__container{
+    padding: 0px;
+
+}
+
+.header__info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: blueviolet;
+    color: white;
+}
+
+.btn{
+    border: none;
+    padding: 8px 16px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 4px;
+    background-color: blueviolet;
+}
+
+.code_block{
+   color: white;
+}
+textarea{
+    background-color: #383838;
+    resize: vertical;
+    color: white;
+    width: 94%;
+    margin: 10px ;
+    outline: none;
+}
