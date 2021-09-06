@@ -1,0 +1,41 @@
+.modal{
+    padding: 1rem;
+}
+.close{
+    border:none;
+    cursor: pointer;
+    background-color: var(--darkPanel);
+    color: var(--lighttext);
+    padding: 0.5rem;
+}
+.header{
+    margin:0px;
+}
+.modal__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.button{
+ display: flex;
+ align-items: center;
+ margin-top: 0.5rem;
+ padding: 0.5rem 1rem;
+ border: none;
+ border-radius: 3px;
+ background-color:#eee;
+ color: var(--lighterDark);
+ cursor: pointer;
+}
+#github__icon{
+    margin-left: 0.5rem;
+}
+
+b{ 
+    padding: 0.1rem ;
+    line-height: 1.3rem;
+    background-color: var(--darkPanel);
+    color: var(--lighttext);
+}

@@ -3,18 +3,49 @@
   background-color:#eee;
   position: fixed;
   min-height: 70px;
-  padding: 0px 20px;
-  margin-bottom: 100px;
+  padding: 0rem 1.25rem;
+  margin-bottom: 6.25rem;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 }
 
+.info__section > img{
+  margin-left: 0.625rem;
+}
+
+img{
+  cursor: pointer;
+}
+
 .logo__info{
   display: flex;
+  align-items: center;
 }
 
 #logo__name{
-  margin-left: 10px;
+  margin-left:0.625rem;
 }
 
+
+/* width */
+::-webkit-scrollbar {
+  cursor: pointer;
+  width: 8px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: blueviolet; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(137, 43, 226, 0.548); 
+}
