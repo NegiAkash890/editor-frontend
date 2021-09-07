@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/NegiAkash890/editor-frontend/static/css/main.80e81dc5.chunk.css",
+    "main.js": "/NegiAkash890/editor-frontend/static/js/main.784a14ad.chunk.js",
+    "main.js.map": "/NegiAkash890/editor-frontend/static/js/main.784a14ad.chunk.js.map",
+    "runtime-main.js": "/NegiAkash890/editor-frontend/static/js/runtime-main.558053e0.js",
+    "runtime-main.js.map": "/NegiAkash890/editor-frontend/static/js/runtime-main.558053e0.js.map",
+    "static/css/2.450bcdb5.chunk.css": "/NegiAkash890/editor-frontend/static/css/2.450bcdb5.chunk.css",
+    "static/js/2.9341e293.chunk.js": "/NegiAkash890/editor-frontend/static/js/2.9341e293.chunk.js",
+    "static/js/2.9341e293.chunk.js.map": "/NegiAkash890/editor-frontend/static/js/2.9341e293.chunk.js.map",
+    "index.html": "/NegiAkash890/editor-frontend/index.html",
+    "static/css/2.450bcdb5.chunk.css.map": "/NegiAkash890/editor-frontend/static/css/2.450bcdb5.chunk.css.map",
+    "static/css/main.80e81dc5.chunk.css.map": "/NegiAkash890/editor-frontend/static/css/main.80e81dc5.chunk.css.map",
+    "static/js/2.9341e293.chunk.js.LICENSE.txt": "/NegiAkash890/editor-frontend/static/js/2.9341e293.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.558053e0.js",
+    "static/css/2.450bcdb5.chunk.css",
+    "static/js/2.9341e293.chunk.js",
+    "static/css/main.80e81dc5.chunk.css",
+    "static/js/main.784a14ad.chunk.js"
+  ]
+}
