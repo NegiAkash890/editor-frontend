@@ -64,7 +64,7 @@ function LeftContainer({pre,ext, updateOutput,updateLoading}) {
                               <button type="button" style={{backgroundColor:"blueviolet",border:"none"}}>
                                  <CopyToClipboard text={code}
                                     onCopy={() => setCopied(true)} >
-                                      <img width='24px' src='/assets/copy.png' alt='Copy to ClipBoard' title='Copy Code' />
+                                      <img width='24px' src={`${process.env.PUBLIC_URL}/assets/copy.png`} alt='Copy to ClipBoard' title='Copy Code' />
                                 </CopyToClipboard>
                               </button>
                             }
@@ -75,9 +75,6 @@ function LeftContainer({pre,ext, updateOutput,updateLoading}) {
                             Copied!
                           </Popup>
                         </div>
-                    
-
-                     
                  </div>
                 <form>
                      {/* textarea for codeblock */}
