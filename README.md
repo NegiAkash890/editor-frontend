@@ -5,8 +5,8 @@
   
 ## Tech Stack 
    
-   + FrontEnd - React Library
-   + Backend  - Express Framework and NodeJs
+  - [Frontend Repository](https://github.com/NegiAkash890/editor-frontend/tree/main)
+  - [Backend Repository](https://github.com/NegiAkash890/editor-backend)
    
 ## Prequisite knowledge
 
