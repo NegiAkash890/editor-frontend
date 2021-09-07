@@ -14,7 +14,7 @@ function RightContainer({output,loading, updateOutput,error}) {
              </div>
              <div className='logger__head_right'>
                     <div id='output'>{output}</div>
-                    <Loader width='100' height='100' type="Rings"  style={{"position":"absolute","top":"40%","left":"40%"}} color={'blueviolet'} visible={loading}/>
+                    <Loader className='loader' width='100' height='100' type="Rings"  color={'blueviolet'} visible={loading}/>
             </div>
         </div>
     )

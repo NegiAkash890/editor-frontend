@@ -26,7 +26,7 @@ function PopUpText(){
            </p>
            <p>This is an <b>open-source project</b> and contributions are
                appreciated. If interested or you have any suggestion 
-               kindly click the <b>GitHub</b> icon in the top-navigation and
+               click the <b>GitHub</b> icon at the bottom and
                raise an <b>issue</b>.
            </p>
         </div>
@@ -34,7 +34,7 @@ function PopUpText(){
           <button
             className="button"
             onClick={() => {
-              console.log('modal closed ');
+  
               close();
             }}
           >

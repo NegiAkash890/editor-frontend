@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import Popup from 'reactjs-popup';
-import { BoundedTooltip } from './Popup';
+
 
 function LeftContainer({pre,ext, updateOutput,updateLoading}) {
     const[copied,setCopied] = useState(false);
@@ -81,10 +81,10 @@ function LeftContainer({pre,ext, updateOutput,updateLoading}) {
                  </div>
                 <form>
                      {/* textarea for codeblock */}
-                     <textarea className='code__block' spellcheck="false" placeholder="Input the Code Here" onChange={handleChange} defaultValue={pre}> 
+                     <textarea className='code__block' spellCheck="false" placeholder="Input the Code Here" onChange={handleChange} defaultValue={pre}> 
                      </textarea>
                      {/* textarea for Input Data */}
-                     <textarea placeholder="Input the Data Here" onChange={takeInput} className='input__block' default={input}>
+                     <textarea placeholder="Input the Data Here" spellCheck="false" onChange={takeInput} className='input__block' default={input}>
                      </textarea>
                 </form>
              </div>

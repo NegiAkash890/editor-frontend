@@ -11,17 +11,16 @@ function Main() {
     const [loading, setLoading] = useState('false') ;
     
     const updateOutput = (res,type) =>{
-            //Todo :console.log(res.data.result)
+        
             if(type === "clear"){
                 setOutput('Console Cleared')
             }
             else if(type === "error"){
-                console.log(type);
+
                 setError(true);
                 setOutput(res.data.result.output);
             }
             else{
-                console.log('exec')
                 setOutput(res.data.result.output);
             }
     }
@@ -39,7 +38,6 @@ function Main() {
 
     return (
         <div className='main__container'>
-          
             <SelectBar changeLanguage={changeLanguage}/>
             <div className='content__area'>
                 <LeftContainer ext={lang} pre={intial} updateOutput={updateOutput} updateLoading={updateLoading} updateError={updateError} loading={loading}/>

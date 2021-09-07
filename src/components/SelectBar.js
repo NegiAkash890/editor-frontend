@@ -21,8 +21,8 @@ function SelectBar({changeLanguage}) {
     return (
         <div className='select__bar'>
             <img src={(lang==='cpp')?`${process.env.PUBLIC_URL}/assets/c-active.png`:`${process.env.PUBLIC_URL}/assets/c-inactive.png`}  alt='C++' width='60px' onClick={(e)=> handleClick(e,'cpp')}/>
-            <img  src={(lang==='java')?`${process.env.PUBLIC_URL}/assets/java-active.png`:`${process.env.PUBLIC_URL}/assets/java-inactive.png`} alt='JS' width='60px' onClick={(e)=> handleClick(e,'java')}/>
-            <img  src={(lang==='py')?`${process.env.PUBLIC_URL}/assets/py-active.png`:`${process.env.PUBLIC_URL}/assets/py-inactive.png`} alt='Python' width='60px' onClick={(e)=>handleClick(e,'py')}/>
+            <img src={(lang==='java')?`${process.env.PUBLIC_URL}/assets/java-active.png`:`${process.env.PUBLIC_URL}/assets/java-inactive.png`} alt='JS' width='60px' onClick={(e)=> handleClick(e,'java')}/>
+            <img src={(lang==='py')?`${process.env.PUBLIC_URL}/assets/py-active.png`:`${process.env.PUBLIC_URL}/assets/py-inactive.png`} alt='Python' width='60px' onClick={(e)=>handleClick(e,'py')}/>
         </div>
     )
 }

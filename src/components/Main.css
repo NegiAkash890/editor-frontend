@@ -27,7 +27,7 @@
 
     flex-basis: 50%;
     border: 0.3px solid rgba(167, 167, 167, 0.39);
-    max-height: 100vh;
+    max-height: 85vh;
 }
 
 .content__area{
@@ -61,11 +61,20 @@
 
 .code__body{
     color: white;
-    margin: 1.25rem 0.625rem;
+    margin: 1rem 0.625rem;
     min-height: 70vh;
-    max-height: 80vh;
+    max-height: 60%;
     background-color: var(--lighterDark);
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1.875rem auto;
+}
+
 textarea,.input__block{
     padding: 0.625rem;
     font-size: 18px;
@@ -77,9 +86,11 @@ textarea,.input__block{
     max-height: 40vh;
     outline: none;
 }
+
 .input__block{
-    min-height: 10vh;
-    margin-top: 1.875rem;
+    min-height: 8vh;
+    max-height: 8vh;
+    margin-top: 1rem;
     background-color: rgba(10, 5, 5, 0.397);
     color: rgb(11, 165, 11);
 }
@@ -89,7 +100,7 @@ textarea,.input__block{
     padding: 0.625rem;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1.875rem;
+    margin-top: 1.5rem;
     background-color: var(--darkPanel);
 }
 
@@ -116,10 +127,9 @@ textarea,.input__block{
     background-color: var(--lighterDark);
     min-height: 50vh;
     max-height: 50vh;
-    margin-top:1.875rem;
+    margin-top:1.5rem;
    
 }
-
 
 #output{
     color: var(--lighttext);
@@ -127,11 +137,64 @@ textarea,.input__block{
     padding: 0.563rem;
 }
 
+.loader{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
 
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 1.875rem auto;
+
+
+/* Media Queries */
+
+@media screen and (max-width: 600px) {
+    body{
+        background-color: black;
+        overflow-x: hidden;
+    }
+    .main__container{
+        display: flex;
+        flex-direction: column;
+    }
+    .select__bar{
+        background-color:var(--darkPanel);
+        justify-content: center;
+        flex-direction: row;
+        min-width: 100%;
+        min-height: 0.8rem;
+        padding: 3rem;
+        margin: 0px;
+        margin-top: 2.2rem;
+    }
+
+    .select__bar > img {
+         width: 30px;
+         margin-right: 2rem;
+    }
+
+    .content__area{
+        display: flex;
+        min-width: 80%;
+        margin: 0px;
+        margin-top: 1rem;
+        flex-direction: column;
+    }
+
+    .left__container,.right__container{
+       min-width:85vw ;
+       margin: 0.3rem ;
+       margin-bottom: 1rem;
+    
+    }
+    .logger__head_right{
+      margin: 1rem;
+    }
+    .logger__heading{
+        font-size: 1rem;
+    }
+    .loader{
+      position: absolute;
+      left: 35%;
+      top:  30%;
+    }
 }
