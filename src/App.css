@@ -27,20 +27,6 @@ img {
 #logo__name {
   margin-left: 0.625rem;
 }
-/*Splash Screen */
-.splash {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: auto;
-  flex-direction: column;
-  text-align: center;
-}
-.splash img {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
 
 /* width */
 ::-webkit-scrollbar {
