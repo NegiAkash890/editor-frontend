@@ -1,7 +1,7 @@
 /* Top Navigation */
-.top__nav{
+.top__nav {
   display: flex;
-  background-color:#eee;
+  background-color: #eee;
   position: fixed;
   min-height: 70px;
   padding: 0rem 1.25rem;
@@ -11,50 +11,61 @@
   align-items: center;
 }
 
-.info__section > img{
+.info__section > img {
   margin-left: 0.625rem;
 }
 
-img{
+img {
   cursor: pointer;
 }
 
-.logo__info{
+.logo__info {
   display: flex;
   align-items: center;
 }
 
-#logo__name{
-  margin-left:0.625rem;
+#logo__name {
+  margin-left: 0.625rem;
 }
-
+/*Splash Screen */
+.splash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: auto;
+  flex-direction: column;
+  text-align: center;
+}
+.splash img {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
 
 /* width */
 ::-webkit-scrollbar {
   cursor: pointer;
   width: 8px;
-
 }
 
 /* ScrollBar Track */
 ::-webkit-scrollbar-track {
-  background: black; 
+  background: black;
 }
- 
+
 /* ScrollBar Handle */
 ::-webkit-scrollbar-thumb {
-  background: blueviolet; 
+  background: blueviolet;
 }
 
 /* ScrollBar Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(137, 43, 226, 0.548); 
+  background: rgba(137, 43, 226, 0.548);
 }
-
 
 /* Media Queries */
 @media screen and (max-width: 600px) {
-  #logo__name{
+  #logo__name {
     font-size: 0.9rem;
   }
 }
