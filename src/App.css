@@ -11,6 +11,13 @@
   align-items: center;
 }
 
+.info__section {
+  width: 7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .info__section > img{
   margin-left: 0.625rem;
 }
