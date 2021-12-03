@@ -1,4 +1,5 @@
 import React, {  useState } from 'react'
+import { useTheme } from '../context/Themeprovider';
 import LeftContainer from './LeftContainer'
 import RightContainer from './RightContainer'
 import SelectBar from './SelectBar'
@@ -9,6 +10,7 @@ function Main() {
     const [error, setError] = useState(false);
     const [intial,setIntial] = useState('');
     const [loading, setLoading] = useState('false') ;
+    const { theme } = useTheme()
     
     const updateOutput = (res,type) =>{
         
@@ -37,7 +39,7 @@ function Main() {
     }
 
     return (
-        <div className='main__container'>
+        <div className={`main__container ${theme === "light" ? `main__container_light-mode`:``}`}>
             <SelectBar changeLanguage={changeLanguage}/>
             <div className='content__area'>
                 <LeftContainer ext={lang} pre={intial} updateOutput={updateOutput} updateLoading={updateLoading} updateError={updateError} loading={loading}/>
