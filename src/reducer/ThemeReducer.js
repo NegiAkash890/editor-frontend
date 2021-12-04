@@ -1,4 +1,4 @@
-export const ThemeReducer = (prevTheme, { type, payload }) => {
+const ThemeReducer = (prevTheme, { type, payload }) => {
   switch (type) {
     case "TOGGLE_THEME":
       if (payload) {
@@ -10,3 +10,4 @@ export const ThemeReducer = (prevTheme, { type, payload }) => {
       return prevTheme;
   }
 };
+export default ThemeReducer;
