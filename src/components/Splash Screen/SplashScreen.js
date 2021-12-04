@@ -18,4 +18,4 @@ const Preloader = () => {
 };
 
 export default Preloader;
-//<PropagateLoader size="20" />
+
