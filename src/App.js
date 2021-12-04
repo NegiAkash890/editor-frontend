@@ -1,9 +1,9 @@
-import Footer from "./components/Footer";
-import Main from "./components/Main";
-import NavBar from "./components/NavBar";
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import Preloader from "./components/Splash Screen/SplashScreen";
+import React, { useState, useEffect } from 'react';
+import Footer from './components/Footer';
+import Main from './components/Main';
+import NavBar from './components/NavBar';
+import './App.css';
+import Preloader from './components/Splash Screen/SplashScreen';
 
 const App = () => {
   // Loading state
