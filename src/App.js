@@ -1,23 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from './components/Footer';
 import Main from './components/Main';
 import NavBar from './components/NavBar';
 import './App.css';
+import Preloader from './components/Splash Screen/SplashScreen';
 
-const App = () => (
-  <div className="App">
-    {/* Landing Navigation Bar */}
+const App = () => {
+  // Loading state
+  const [isLoading, setIsLoading] = useState(true);
 
-    <NavBar />
+  useEffect(() => {
+    // Wait for 3 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
 
-    {/* Main Container */}
+  return isLoading ? (
+    // If page is still loading then splash screen
+    <Preloader />
+  ) : (
+    <div className="App">
+      {/* Landing Navigation Bar */}
 
-    <Main />
+      <NavBar />
 
-    {/* Footer Container */}
+      {/* Main Container */}
 
-    <Footer />
-  </div>
-);
+      <Main />
+
+      {/* Footer Container */}
+
+      <Footer />
+    </div>
+  );
+};
 
 export default App;
