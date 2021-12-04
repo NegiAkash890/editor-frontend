@@ -1,24 +1,23 @@
+import React from 'react';
 import Footer from './components/Footer';
 import Main from './components/Main';
 import NavBar from './components/NavBar';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App"> 
-      {/* Landing Navigation Bar */}
-      
-      <NavBar/>
+const App = () => (
+  <div className="App">
+    {/* Landing Navigation Bar */}
 
-      {/* Main Container */}
-      
-      <Main/>
+    <NavBar />
 
-      {/* Footer Container */}
+    {/* Main Container */}
 
-      <Footer/>
-    </div>
-  );
-}
+    <Main />
+
+    {/* Footer Container */}
+
+    <Footer />
+  </div>
+);
 
 export default App;
