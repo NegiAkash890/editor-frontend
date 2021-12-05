@@ -75,6 +75,12 @@ For major changes, you are welcome to [open an issue](https://github.com/EddieHu
    1. Extending support for more languages
    2. Making project PWA compatible
    
+ ## ✨ Our valuable Contributors👩‍💻👨‍💻 :
+
+<a href="https://github.com/NegiAkash890/editor-frontend/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=NegiAkash890/editor-frontend" />
+</a>
+
 
 
 
