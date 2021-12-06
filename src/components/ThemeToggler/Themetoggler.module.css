@@ -1,0 +1,7 @@
+.toggler-btn{
+    width: max-content;
+    padding: 0.5rem;
+    background: #f7f7ff;
+    border: 2px solid gray;
+    cursor: pointer;
+}
