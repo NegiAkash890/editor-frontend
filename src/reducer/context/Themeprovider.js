@@ -2,7 +2,7 @@ import React, {
   createContext, useContext, useEffect, useReducer,
 } from 'react';
 import PropTypes from 'prop-types';
-import ThemeReducer from '../reducer/ThemeReducer';
+import ThemeReducer from '../ThemeReducer';
 
 const ThemeContext = createContext();
 // eslint disable-next-line

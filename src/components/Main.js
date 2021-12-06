@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: 0 */
 import React, { useState } from 'react';
-import { useTheme } from '../context/Themeprovider';
+import { useTheme } from '../reducer/context/Themeprovider';
 import LeftContainer from './LeftContainer';
 import RightContainer from './RightContainer';
 import SelectBar from './SelectBar';

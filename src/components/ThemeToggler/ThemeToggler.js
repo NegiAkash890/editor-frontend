@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { useTheme } from '../../context/Themeprovider';
+import { useTheme } from '../../reducer/context/Themeprovider';
 import togglerStyles from './Themetoggler.module.css';
 
 const ThemeToggler = () => {

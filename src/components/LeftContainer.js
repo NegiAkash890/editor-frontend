@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
-import { useTheme } from '../context/Themeprovider';
+import { useTheme } from '../reducer/context/Themeprovider';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
