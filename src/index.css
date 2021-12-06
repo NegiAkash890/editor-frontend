@@ -11,6 +11,8 @@ html{
 }
 :root{
   --darkPanel : blueviolet ;
-  --lighttext : white ;
+  --lighttext : white;
+  --darktext :  #222225;
   --lighterDark : #383838;
+  --darkerLight : #e4e4e4;
 }

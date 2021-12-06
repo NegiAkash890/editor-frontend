@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
+import { useTheme } from '../context/Themeprovider';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
@@ -11,6 +12,7 @@ const LeftContainer = ({
   const [copied, setCopied] = useState(false);
   const [code, setCode] = useState(pre);
   const [input, setInput] = useState(null);
+  const { theme } = useTheme();
 
   const handleChange = (e) => {
     setCode(e.target.value);
@@ -60,7 +62,11 @@ const LeftContainer = ({
           </button>
         </div>
       </div>
-      <div className="code__body">
+      <div
+        className={`code__body ${
+          theme === 'light' ? 'code__body_light-mode' : ''
+        }`}
+      >
         <div className="logger__head_left">
           <h3 className="logger__heading">Editor</h3>
           <div className="tooltipBoundary">
@@ -91,7 +97,9 @@ const LeftContainer = ({
         <form>
           {/* textarea for codeblock */}
           <textarea
-            className="code__block"
+            className={`code__block ${
+              theme === 'light' ? 'code__block_light-mode' : ''
+            }`}
             spellCheck="false"
             placeholder="Input the Code Here"
             onChange={handleChange}
@@ -102,7 +110,9 @@ const LeftContainer = ({
             placeholder="Input the Data Here"
             spellCheck="false"
             onChange={takeInput}
-            className="input__block"
+            className={`input__block ${
+              theme === 'light' ? 'input__block_light-mode' : ''
+            }`}
             default={input}
           />
         </form>
