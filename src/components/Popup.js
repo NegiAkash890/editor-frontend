@@ -36,8 +36,8 @@ const PopUpText = () => (
           <p>
             This is an
             <b>open-source project</b>
-            and contributions are appreciated. If
-            interested or you have any suggestion click the
+            and contributions are appreciated. If interested or you have any
+            suggestion click the
             <b>GitHub</b>
             icon at the bottom and raise an
             <b>issue.</b>

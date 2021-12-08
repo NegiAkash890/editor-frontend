@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: 0 */
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
@@ -12,7 +12,24 @@ const LeftContainer = ({
   const [copied, setCopied] = useState(false);
   const [code, setCode] = useState(pre);
   const [input, setInput] = useState(null);
+  const [fileinput, setFileInput] = useState();
   const { theme } = useTheme();
+
+  const showFile = (e) => {
+    e.preventDefault();
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      const text = ev.target.result;
+      setFileInput(text);
+    };
+
+    reader.readAsText(e.target.files[0]);
+  };
+
+  useEffect(() => {
+    console.log('File', fileinput);
+    setCode(fileinput);
+  }, [fileinput]);
 
   const handleChange = (e) => {
     setCode(e.target.value);
@@ -104,6 +121,7 @@ const LeftContainer = ({
             placeholder="Input the Code Here"
             onChange={handleChange}
             defaultValue={pre}
+            value={code}
           />
           {/* textarea for Input Data */}
           <textarea
@@ -116,6 +134,7 @@ const LeftContainer = ({
             default={input}
           />
         </form>
+        <input className="btn" type="file" onChange={showFile} />
       </div>
     </div>
   );
