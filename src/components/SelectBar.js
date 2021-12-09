@@ -1,23 +1,23 @@
-import React, { useState } from 'react'
-import {shallowEqual, useDispatch,useSelector } from "react-redux";
+import React, { useContext, useState } from 'react'
 import './Main.css'
+import { LanguageContext} from './Context/languageContext';
 
 function SelectBar({changeLanguage}) {
+    const { setLanguage } = useContext(LanguageContext);
     const [lang, setLang] = useState('cpp');
-    const dispatch = useDispatch();
     const handleClick = (e,value)=>{
         switch(value) {
             case 'cpp' : e.target.setAttribute("src",`${process.env.PUBLIC_URL}/assets/c-active.png`);
                          setLang('cpp');
-                         dispatch({type:"cpp"});
+                         setLanguage('cpp');
                 break;
             case 'java'  : e.target.setAttribute("src",`${process.env.PUBLIC_URL}/assets/java-active.png`)
                          setLang('java');
-                         dispatch({type:"java"});    
+                         setLanguage('java'); 
             break;
             case 'py'  : e.target.setAttribute("src",`${process.env.PUBLIC_URL}/assets/py-active.png`);
                          setLang('py');
-                         dispatch({type:"python"});
+                         setLanguage('python');
                 break ;
             default :
         }

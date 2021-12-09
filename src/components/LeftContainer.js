@@ -1,11 +1,14 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { shallowEqual,useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
+import { LanguageContext } from './Context/languageContext';
+import snippets from "./snippets";
 
 
 function LeftContainer({pre,ext, updateOutput,updateLoading}) {
+    const ans = useContext(LanguageContext).language;
     const[copied,setCopied] = useState(false);
     const [code,setCode] = useState(pre);
     const [input, setInput] = useState(null);
@@ -42,11 +45,11 @@ function LeftContainer({pre,ext, updateOutput,updateLoading}) {
                   }
             );
     }
-    const [codeValue,updateCodeValue] = useState("");
-    const codeValue2 = useSelector((state)=>state.language.data,shallowEqual);
+    const [codeValue,updateCodeValue] = useState(snippets[ans]);
     useEffect(()=>{
-      updateCodeValue(codeValue2);
-    },[codeValue2]);
+      updateCodeValue(snippets[ans]);
+    },[ans]);
+
     return (
         <div className='left__container'>
             <div className='header__info'> 
