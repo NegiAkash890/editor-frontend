@@ -21,6 +21,10 @@
     display: flex;
     height: 100vh;
     background-color: black;
+    transition: 0.2s ease;
+}
+.main__container_light-mode{
+    background-color:#a5aaa99f;
 }
 
 .right__container, .left__container{
@@ -65,8 +69,12 @@
     min-height: 70vh;
     max-height: 60%;
     background-color: var(--lighterDark);
+    transition: 0.2s ease;
 }
 
+.code__body_light-mode{
+    background-color: var(--darkerLight);
+}
 form{
     display: flex;
     flex-direction: column;
@@ -85,6 +93,11 @@ textarea,.input__block{
     min-height: 40vh;
     max-height: 40vh;
     outline: none;
+    transition: 0.2s ease;
+}
+.code__block_light-mode{
+    background-color: var(--darkerLight);
+    color: var(--darktext);
 }
 
 .input__block{
@@ -93,6 +106,12 @@ textarea,.input__block{
     margin-top: 1rem;
     background-color: rgba(10, 5, 5, 0.397);
     color: rgb(11, 165, 11);
+    transition: 0.2s ease;
+}
+
+.input__block_light-mode {
+    background-color: rgba(99, 102, 104, 0.281) ;
+    color: var(--darktext);
 }
 
 .logger__head_left{
@@ -128,13 +147,21 @@ textarea,.input__block{
     min-height: 50vh;
     max-height: 50vh;
     margin-top:1.5rem;
+    transition: 0.2s ease;
    
 }
+.logger__head_right_light-mode{
+    background-color: var(--darkerLight);
+}
 
-#output{
+.output{
     color: var(--lighttext);
     font-size: 18px;
     padding: 0.563rem;
+    transition: 0.2s ease;
+}
+.output_light-mode{
+    color: var(--darktext);
 }
 
 .loader{
