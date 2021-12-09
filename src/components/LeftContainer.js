@@ -1,14 +1,14 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { shallowEqual,useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
 
 
 function LeftContainer({pre,ext, updateOutput,updateLoading}) {
     const[copied,setCopied] = useState(false);
     const [code,setCode] = useState(pre);
-    const [input, setInput] = useState(null);
+    const [input, setInput] = useState(null) ;
+
     const handleChange=(e)=>{
       setCode(e.target.value);
     }
@@ -42,11 +42,7 @@ function LeftContainer({pre,ext, updateOutput,updateLoading}) {
                   }
             );
     }
-    const [codeValue,updateCodeValue] = useState("");
-    const codeValue2 = useSelector((state)=>state.language.data,shallowEqual);
-    useEffect(()=>{
-      updateCodeValue(codeValue2);
-    },[codeValue2]);
+
     return (
         <div className='left__container'>
             <div className='header__info'> 
@@ -82,7 +78,7 @@ function LeftContainer({pre,ext, updateOutput,updateLoading}) {
                  </div>
                 <form>
                      {/* textarea for codeblock */}
-                     <textarea className='code__block' spellCheck="false" key={codeValue} defaultValue={codeValue} onChange={handleChange} > 
+                     <textarea className='code__block' spellCheck="false" placeholder="Input the Code Here" onChange={handleChange} defaultValue={pre}> 
                      </textarea>
                      {/* textarea for Input Data */}
                      <textarea placeholder="Input the Data Here" spellCheck="false" onChange={takeInput} className='input__block' default={input}>
