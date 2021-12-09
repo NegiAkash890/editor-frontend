@@ -1,29 +1,44 @@
+import React, { useState, useEffect } from 'react';
 import Footer from './components/Footer';
 import Main from './components/Main';
 import NavBar from './components/NavBar';
 import './App.css';
 import { LanguageContextProvider } from './components/Context/languageContext';
-import { useState } from 'react';
+import Preloader from './components/Splash Screen/SplashScreen';
 
-function App() {
-  const [language,setLanguage] = useState('cpp');
-  return (
+const App = () => {
+  const [language, setLanguage] = useState('cpp');
+  // Loading state
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Wait for 3 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
+  return isLoading ? (
+    // If page is still loading then splash screen
+    <Preloader />
+  ) : (
     <div className="App">
-    <LanguageContextProvider value={{language,setLanguage}}>
-      {/* Landing Navigation Bar */}
-      
-      <NavBar/>
+      <LanguageContextProvider value={{ language, setLanguage }}>
+        {/* Landing Navigation Bar */}
 
-      {/* Main Container */}
-      
-      <Main/>
+        <NavBar />
 
-      {/* Footer Container */}
+        {/* Main Container */}
 
-      <Footer/>
-    </LanguageContextProvider> 
+        <Main />
+
+        {/* Footer Container */}
+
+        <Footer />
+        <Footer />
+      </LanguageContextProvider>
     </div>
   );
-}
+};
 
 export default App;

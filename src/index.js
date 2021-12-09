@@ -2,16 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { Provider } from 'react-redux'
-import {store} from './store/store'
-
+import { ThemeProvider } from './reducer/context/Themeprovider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ThemeProvider>
       <App />
-    </Provider>
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-
