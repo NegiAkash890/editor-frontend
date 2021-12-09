@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState, useContext } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { shallowEqual,useSelector } from 'react-redux';
 import Popup from 'reactjs-popup';
 import { LanguageContext } from './Context/languageContext';
 import snippets from "./snippets";
