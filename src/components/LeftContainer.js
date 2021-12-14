@@ -134,7 +134,10 @@ const LeftContainer = ({
             default={input}
           />
         </form>
-        <input className="btn" type="file" onChange={showFile} />
+        <div className="logger__footer_left">
+          <h3 className="logger__heading">Upload File</h3>
+          <input className="btn" type="file" onChange={showFile} />
+        </div>
       </div>
     </div>
   );
