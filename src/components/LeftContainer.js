@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: 0 */
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
@@ -31,6 +31,11 @@ const LeftContainer = ({
     setCode(fileinput);
   }, [fileinput]);
 
+  const hiddenFileInput = useRef(null);
+
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
   const handleChange = (e) => {
     setCode(e.target.value);
   };
@@ -68,6 +73,19 @@ const LeftContainer = ({
           </span>
         </div>
         <div>
+          <button className="btn" type="button" onClick={handleClick}>
+            <img
+              title="Upload"
+              src={`${process.env.PUBLIC_URL}/assets/upload.png`}
+              alt="Upload Code"
+            />
+          </button>
+          <input
+            type="file"
+            onChange={showFile}
+            style={{ display: 'none' }}
+            ref={hiddenFileInput}
+          />
           {/* Button for download & Submit */}
           <button className="btn" type="button">
             <img
@@ -134,10 +152,6 @@ const LeftContainer = ({
             default={input}
           />
         </form>
-        <div className="logger__footer_left">
-          <h3 className="logger__heading">Upload File</h3>
-          <input className="btn" type="file" onChange={showFile} />
-        </div>
       </div>
     </div>
   );

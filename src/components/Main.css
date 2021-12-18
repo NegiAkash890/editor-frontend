@@ -30,7 +30,7 @@
 .left__container {
   flex-basis: 50%;
   border: 0.3px solid rgba(167, 167, 167, 0.39);
-  max-height: 87vh;
+  max-height: 85vh;
 }
 
 .content__area {
@@ -114,8 +114,7 @@ textarea,
   color: var(--darktext);
 }
 
-.logger__head_left,
-.logger__footer_left {
+.logger__head_left {
   display: flex;
   padding: 0.625rem;
   justify-content: space-between;
@@ -211,9 +210,7 @@ textarea,
     margin: 0.3rem;
     margin-bottom: 1rem;
   }
-  .left__container {
-    margin-bottom: 3rem;
-  }
+
   .code__body {
     margin-bottom: 2rem;
   }
@@ -227,8 +224,5 @@ textarea,
     position: absolute;
     left: 35%;
     top: 30%;
-  }
-  .logger__footer_left {
-    margin-bottom: auto;
   }
 }
