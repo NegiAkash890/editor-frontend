@@ -36,6 +36,17 @@ const LeftContainer = ({
   const handleClick = (event) => {
     hiddenFileInput.current.click();
   };
+  const downloadTxtFile = () => {
+    const element = document.createElement('a');
+    const file = new Blob([code], {
+      type: 'text/plain',
+    });
+    element.href = URL.createObjectURL(file);
+    const fileName = 'myCode.'.concat(ext);
+    element.download = fileName;
+    document.body.appendChild(element);
+    element.click();
+  };
   const handleChange = (e) => {
     setCode(e.target.value);
   };
@@ -107,6 +118,14 @@ const LeftContainer = ({
         <div className="logger__head_left">
           <h3 className="logger__heading">Editor</h3>
           <div className="tooltipBoundary">
+            <button className="btn" type="button">
+              <img
+                title="Download"
+                src={`${process.env.PUBLIC_URL}/assets/download.png`}
+                alt="Submit Code"
+                onClick={downloadTxtFile}
+              />
+            </button>
             <Popup
               trigger={(
                 <button
