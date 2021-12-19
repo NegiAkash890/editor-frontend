@@ -68,7 +68,8 @@ For major changes, you are welcome to [open an issue](https://github.com/EddieHu
 
 ## LightHouse Stats
 
-   ![image](https://user-images.githubusercontent.com/55234838/132373553-e4c82119-76bd-4670-a97c-180b0ba347f5.png)
+   ![image](https://user-images.githubusercontent.com/55234838/146677734-1b808513-d9ae-4770-b29e-2598072ccb74.png)
+
    
 ## Future Updates
     
