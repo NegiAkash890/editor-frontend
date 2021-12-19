@@ -78,6 +78,7 @@ const LeftContainer = ({
               title="Upload"
               src={`${process.env.PUBLIC_URL}/assets/upload.png`}
               alt="Upload Code"
+              width="16px"
             />
           </button>
           <input
@@ -93,6 +94,7 @@ const LeftContainer = ({
               src={`${process.env.PUBLIC_URL}/assets/play.png`}
               alt="Submit Code"
               onClick={handleSubmit}
+              width="18px"
             />
           </button>
         </div>
