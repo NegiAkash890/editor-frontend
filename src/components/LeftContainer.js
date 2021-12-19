@@ -1,6 +1,6 @@
 /* eslint no-unused-vars: 0 */
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
@@ -12,8 +12,30 @@ const LeftContainer = ({
   const [copied, setCopied] = useState(false);
   const [code, setCode] = useState(pre);
   const [input, setInput] = useState(null);
+  const [fileinput, setFileInput] = useState();
   const { theme } = useTheme();
 
+  const showFile = (e) => {
+    e.preventDefault();
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      const text = ev.target.result;
+      setFileInput(text);
+    };
+
+    reader.readAsText(e.target.files[0]);
+  };
+
+  useEffect(() => {
+    console.log('File', fileinput);
+    setCode(fileinput);
+  }, [fileinput]);
+
+  const hiddenFileInput = useRef(null);
+
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
   const handleChange = (e) => {
     setCode(e.target.value);
   };
@@ -51,6 +73,20 @@ const LeftContainer = ({
           </span>
         </div>
         <div>
+          <button className="btn" type="button" onClick={handleClick}>
+            <img
+              title="Upload"
+              src={`${process.env.PUBLIC_URL}/assets/upload.png`}
+              alt="Upload Code"
+              width="16px"
+            />
+          </button>
+          <input
+            type="file"
+            onChange={showFile}
+            style={{ display: 'none' }}
+            ref={hiddenFileInput}
+          />
           {/* Button for download & Submit */}
           <button className="btn" type="button">
             <img
@@ -58,6 +94,7 @@ const LeftContainer = ({
               src={`${process.env.PUBLIC_URL}/assets/play.png`}
               alt="Submit Code"
               onClick={handleSubmit}
+              width="18px"
             />
           </button>
         </div>
@@ -104,6 +141,7 @@ const LeftContainer = ({
             placeholder="Input the Code Here"
             onChange={handleChange}
             defaultValue={pre}
+            value={code}
           />
           {/* textarea for Input Data */}
           <textarea
