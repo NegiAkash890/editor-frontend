@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './Main.css';
 import PropTypes from 'prop-types';
+import { useBoilerplate } from '../reducer/context/BoilerplateProvider';
 
 const SelectBar = ({ changeLanguage }) => {
   const [lang, setLang] = useState('cpp');
+  const { setBoilerplateCode } = useBoilerplate();
+
   const handleClick = (e, value) => {
     switch (value) {
       case 'cpp':
@@ -41,7 +44,10 @@ const SelectBar = ({ changeLanguage }) => {
         }
         alt="C++"
         width="60px"
-        onClick={(e) => handleClick(e, 'cpp')}
+        onClick={(e) => {
+          setBoilerplateCode({ type: 'CPP' });
+          handleClick(e, 'cpp');
+        }}
       />
       <img
         src={
@@ -51,7 +57,10 @@ const SelectBar = ({ changeLanguage }) => {
         }
         alt="JS"
         width="60px"
-        onClick={(e) => handleClick(e, 'java')}
+        onClick={(e) => {
+          setBoilerplateCode({ type: 'JAVA' });
+          handleClick(e, 'java');
+        }}
       />
       <img
         src={
@@ -61,7 +70,10 @@ const SelectBar = ({ changeLanguage }) => {
         }
         alt="Python"
         width="60px"
-        onClick={(e) => handleClick(e, 'py')}
+        onClick={(e) => {
+          setBoilerplateCode({ type: 'PYTHON' });
+          handleClick(e, 'py');
+        }}
       />
     </div>
   );

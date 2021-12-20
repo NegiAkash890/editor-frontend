@@ -1,5 +1,6 @@
 /* eslint no-unused-vars: 0 */
 import React, { useState } from 'react';
+import { useBoilerplate } from '../reducer/context/BoilerplateProvider';
 import { useTheme } from '../reducer/context/Themeprovider';
 import LeftContainer from './LeftContainer';
 import RightContainer from './RightContainer';
@@ -9,9 +10,10 @@ const Main = () => {
   const [output, setOutput] = useState('');
   const [lang, setLang] = useState('cpp');
   const [error, setError] = useState(false);
-  const [intial, setIntial] = useState('');
+  // const [intial, setIntial] = useState('');
   const [loading, setLoading] = useState('false');
   const { theme } = useTheme();
+  const { boilerplateCode } = useBoilerplate();
 
   const updateOutput = (res, type) => {
     if (type === 'clear') {
@@ -33,7 +35,6 @@ const Main = () => {
   const changeLanguage = (value) => {
     setLang(value);
   };
-
   return (
     <div
       className={`main__container ${
@@ -44,7 +45,7 @@ const Main = () => {
       <div className="content__area">
         <LeftContainer
           ext={lang}
-          pre={intial}
+          pre={boilerplateCode}
           updateOutput={updateOutput}
           updateLoading={updateLoading}
           updateError={updateError}

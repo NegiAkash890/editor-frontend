@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 /* eslint no-unused-vars: 0 */
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
@@ -13,6 +14,10 @@ const LeftContainer = ({
   const [code, setCode] = useState(pre);
   const [input, setInput] = useState(null);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    setCode(pre);
+  }, [pre]);
 
   const handleChange = (e) => {
     setCode(e.target.value);
@@ -103,7 +108,9 @@ const LeftContainer = ({
             spellCheck="false"
             placeholder="Input the Code Here"
             onChange={handleChange}
-            defaultValue={pre}
+            // defaultValue={pre}
+            value={code}
+            // defaultValue={boilerplateCode}
           />
           {/* textarea for Input Data */}
           <textarea
