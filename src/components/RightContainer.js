@@ -2,7 +2,7 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
 import PropTypes from 'prop-types';
-import { useTheme } from '../reducer/context/Themeprovider';
+import { useTheme } from '../context/Providers/Themeprovider';
 
 const RightContainer = ({
   output, loading, updateOutput, error,

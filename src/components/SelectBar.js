@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Main.css';
 import PropTypes from 'prop-types';
-import { useBoilerplate } from '../reducer/context/BoilerplateProvider';
+import { useBoilerplate } from '../context/Providers/BoilerplateProvider';
 
 const SelectBar = ({ changeLanguage }) => {
   const [lang, setLang] = useState('cpp');

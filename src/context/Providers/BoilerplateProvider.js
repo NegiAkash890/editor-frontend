@@ -2,7 +2,7 @@ import {
   createContext, useContext, useReducer, useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
-import BoilerplateReducer from '../BoilerplateReducer';
+import BoilerplateReducer from '../reducers/BoilerplateReducer';
 
 const BoilerPlateContext = createContext();
 
@@ -15,7 +15,6 @@ export const BoilerplateProvider = ({ children }) => {
 
   return (
     /* eslint-disable */
-    // eslint disable-next-line jsx-no-constructed-context-values
     <BoilerPlateContext.Provider
       value={{ boilerplateCode, setBoilerplateCode }}
     >

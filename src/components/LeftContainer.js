@@ -5,7 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
-import { useTheme } from '../reducer/context/Themeprovider';
+import { useTheme } from '../context/Providers/Themeprovider';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
@@ -15,7 +15,7 @@ const LeftContainer = ({
   const [input, setInput] = useState(null);
   const [fileinput, setFileInput] = useState();
   const { theme } = useTheme();
-  
+
   useEffect(() => {
     setCode(pre);
   }, [pre]);
@@ -27,12 +27,10 @@ const LeftContainer = ({
       const text = ev.target.result;
       setFileInput(text);
     };
-
     reader.readAsText(e.target.files[0]);
   };
 
   useEffect(() => {
-    console.log('File', fileinput);
     setCode(fileinput);
   }, [fileinput]);
 

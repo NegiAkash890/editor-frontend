@@ -1,4 +1,6 @@
 /* Leftmost selection Bar */
+@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
+
 .select__bar {
   background-color: var(--darkPanel);
   min-height: 100vh;
@@ -22,6 +24,7 @@
   background-color: black;
   transition: 0.2s ease;
 }
+
 .main__container_light-mode {
   background-color: #a5aaa99f;
 }
@@ -74,6 +77,7 @@
 .code__body_light-mode {
   background-color: var(--darkerLight);
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -94,12 +98,13 @@ textarea,
   max-height: 40vh;
   outline: none;
   transition: 0.2s ease;
+  font-family: 'JetBrains Mono', monospace;
 }
+
 .code__block_light-mode {
   background-color: var(--darkerLight);
   color: var(--darktext);
 }
-
 .input__block {
   min-height: 8vh;
   max-height: 8vh;
@@ -149,6 +154,7 @@ textarea,
   margin-top: 1.5rem;
   transition: 0.2s ease;
 }
+
 .logger__head_right_light-mode {
   background-color: var(--darkerLight);
 }
@@ -159,6 +165,7 @@ textarea,
   padding: 0.563rem;
   transition: 0.2s ease;
 }
+
 .output_light-mode {
   color: var(--darktext);
 }
@@ -172,14 +179,17 @@ textarea,
 /* Media Queries */
 
 @media screen and (max-width: 600px) {
+
   body {
     background-color: black;
     overflow-x: hidden;
   }
+
   .main__container {
     display: flex;
     flex-direction: column;
   }
+
   .select__bar {
     background-color: var(--darkPanel);
     justify-content: center;
@@ -214,15 +224,19 @@ textarea,
   .code__body {
     margin-bottom: 2rem;
   }
+
   .logger__head_right {
     margin: 1rem;
   }
+
   .logger__heading {
     font-size: 1rem;
   }
+
   .loader {
     position: absolute;
     left: 35%;
     top: 30%;
   }
+
 }

@@ -2,6 +2,7 @@ const cppBoilerCode = `#include<bits/stdc++.h>
 using namespace std;
 int main(){
     //Input the code here
+    return 0;
 }`;
 
 const javaBoilerCode = `import java.util.*;
@@ -17,7 +18,8 @@ class Main
 }`;
 
 // eslint-disable-next-line quotes
-const pythonBoilerCode = `print('Hello world')`;
+const pythonBoilerCode = `# Python code Here \n
+print('Hello world')`;
 
 const BoilerplateReducer = (prevCode, { type }) => {
   switch (type) {

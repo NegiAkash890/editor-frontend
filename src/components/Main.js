@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import React, { useState } from 'react';
-import { useBoilerplate } from '../reducer/context/BoilerplateProvider';
-import { useTheme } from '../reducer/context/Themeprovider';
+import { useBoilerplate } from '../context/Providers/BoilerplateProvider';
+import { useTheme } from '../context/Providers/Themeprovider';
 import LeftContainer from './LeftContainer';
 import RightContainer from './RightContainer';
 import SelectBar from './SelectBar';
@@ -11,7 +11,7 @@ const Main = () => {
   const [lang, setLang] = useState('cpp');
   const [error, setError] = useState(false);
   // const [intial, setIntial] = useState('');
-  const [loading, setLoading] = useState('false');
+  const [loading, setLoading] = useState(false);
   const { theme } = useTheme();
   const { boilerplateCode } = useBoilerplate();
 

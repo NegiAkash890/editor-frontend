@@ -6,9 +6,11 @@
   box-sizing: border-box;
   transition: 0.4 ease all;
 }
+
 html{
   font-size: 16px;
 }
+
 :root{
   --darkPanel : blueviolet ;
   --lighttext : white;

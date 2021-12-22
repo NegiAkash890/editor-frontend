@@ -2,10 +2,9 @@ import React, {
   createContext, useContext, useEffect, useReducer,
 } from 'react';
 import PropTypes from 'prop-types';
-import ThemeReducer from '../ThemeReducer';
+import ThemeReducer from '../reducers/ThemeReducer';
 
 const ThemeContext = createContext();
-// eslint disable-next-line
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useReducer(ThemeReducer, 'light');
 
@@ -22,7 +21,6 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     /* eslint-disable */
-    // eslint disable-next-line jsx-no-constructed-context-values
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}
     </ThemeContext.Provider>
