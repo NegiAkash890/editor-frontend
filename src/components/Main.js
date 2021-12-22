@@ -10,7 +10,7 @@ const Main = () => {
   const [lang, setLang] = useState('cpp');
   const [error, setError] = useState(false);
   const [intial, setIntial] = useState('');
-  const [loading, setLoading] = useState('false');
+  const [loading, setLoading] = useState(false);
   const { theme } = useTheme();
 
   const updateOutput = (res, type) => {

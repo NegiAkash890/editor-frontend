@@ -82,7 +82,10 @@ form {
   margin: 1.875rem auto;
 }
 
-textarea,
+.code-mirror-wrapper {
+  width: 94%;
+}
+
 .input__block {
   padding: 0.625rem;
   font-size: 18px;
@@ -116,7 +119,7 @@ textarea,
 
 .logger__head_left {
   display: flex;
-  padding: 0.625rem;
+  padding: 0.225rem;
   justify-content: space-between;
   align-items: center;
   margin-top: 1.5rem;

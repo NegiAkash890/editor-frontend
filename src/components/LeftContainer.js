@@ -4,6 +4,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
+import { Controlled as ControlledEditor } from 'react-codemirror2-react-17';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/eclipse.css';
+import 'codemirror/theme/dracula.css';
+import 'codemirror/mode/clike/clike';
+import 'codemirror/mode/python/python';
 import { useTheme } from '../reducer/context/Themeprovider';
 
 const LeftContainer = ({
@@ -13,7 +19,22 @@ const LeftContainer = ({
   const [code, setCode] = useState(pre);
   const [input, setInput] = useState(null);
   const [fileinput, setFileInput] = useState();
+  const [mode, setMode] = useState(ext);
   const { theme } = useTheme();
+
+  // set the language mode
+  const setLanguageMode = () => {
+    switch (ext) {
+      case 'cpp': setMode('text/x-c++src'); break;
+      case 'java': setMode('text/x-java'); break;
+      case 'py': setMode('text/x-python'); break;
+      default:
+    }
+  };
+
+  useEffect(() => {
+    setLanguageMode();
+  }, [ext]);
 
   const showFile = (e) => {
     e.preventDefault();
@@ -27,7 +48,7 @@ const LeftContainer = ({
   };
 
   useEffect(() => {
-    console.log('File', fileinput);
+    // console.log('File', fileinput);
     setCode(fileinput);
   }, [fileinput]);
 
@@ -47,8 +68,8 @@ const LeftContainer = ({
     document.body.appendChild(element);
     element.click();
   };
-  const handleChange = (e) => {
-    setCode(e.target.value);
+  const handleChange = (editor, data, value) => {
+    setCode(value);
   };
   const takeInput = (e) => {
     setInput(e.target.value);
@@ -151,16 +172,18 @@ const LeftContainer = ({
           </div>
         </div>
         <form>
-          {/* textarea for codeblock */}
-          <textarea
-            className={`code__block ${
-              theme === 'light' ? 'code__block_light-mode' : ''
-            }`}
-            spellCheck="false"
-            placeholder="Input the Code Here"
-            onChange={handleChange}
-            defaultValue={pre}
+          {/* code editor component */}
+          <ControlledEditor
+            onBeforeChange={handleChange}
             value={code}
+            className="code-mirror-wrapper"
+            options={{
+              lineWrapping: true,
+              lint: true,
+              mode,
+              theme: theme === 'light' ? 'eclipse' : 'dracula',
+              lineNumbers: true,
+            }}
           />
           {/* textarea for Input Data */}
           <textarea

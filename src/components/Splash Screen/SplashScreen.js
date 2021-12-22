@@ -11,7 +11,7 @@ const Preloader = () => (
       height="150rem"
     />
     <br />
-    <PropagateLoader size="20" />
+    <PropagateLoader size="20px" />
   </div>
 );
 
