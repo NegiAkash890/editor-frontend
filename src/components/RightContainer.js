@@ -16,17 +16,19 @@ const RightContainer = ({
           <span>Output Terminal</span>
         </div>
         <div>
-          <button
-            className="btn"
-            type="button"
-            onClick={() => updateOutput('Console Cleared', 'clear')}
-          >
-            <img
-              title="Clear Terminal"
-              alt="Clear Terminal"
-              src={`${process.env.PUBLIC_URL}/assets/clear-icon.png`}
-            />
-          </button>
+          {output && (
+            <button
+              className="btn"
+              type="button"
+              onClick={() => updateOutput('Console Cleared', 'clear')}
+            >
+              <img
+                title="Clear Terminal"
+                alt="Clear Terminal"
+                src={`${process.env.PUBLIC_URL}/assets/clear-icon.png`}
+              />
+            </button>
+          )}
         </div>
       </div>
       <div
