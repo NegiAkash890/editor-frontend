@@ -1,17 +1,19 @@
-/* eslint no-unused-vars: 0 */
 import React, { useState } from 'react';
-import { useTheme } from '../reducer/context/Themeprovider';
+import { useBoilerplate } from '../context/Providers/BoilerplateProvider';
+import { useTheme } from '../context/Providers/Themeprovider';
 import LeftContainer from './LeftContainer';
 import RightContainer from './RightContainer';
 import SelectBar from './SelectBar';
+import './Main.css';
 
 const Main = () => {
   const [output, setOutput] = useState('');
   const [lang, setLang] = useState('cpp');
   const [error, setError] = useState(false);
-  const [intial, setIntial] = useState('');
+  // const [intial, setIntial] = useState('');
   const [loading, setLoading] = useState(false);
   const { theme } = useTheme();
+  const { boilerplateCode } = useBoilerplate();
 
   const updateOutput = (res, type) => {
     if (type === 'clear') {
@@ -44,7 +46,7 @@ const Main = () => {
       <div className="content__area">
         <LeftContainer
           ext={lang}
-          pre={intial}
+          pre={boilerplateCode}
           updateOutput={updateOutput}
           updateLoading={updateLoading}
           updateError={updateError}

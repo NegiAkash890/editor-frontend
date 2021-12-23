@@ -2271,11 +2271,6 @@
     "mime-types" "~2.1.24"
     "negotiator" "0.6.2"
 
-"ace-builds@^1.4.13":
-  "integrity" "sha512-SOLzdaQkY6ecPKYRDDg+MY1WoGgXA34cIvYJNNoBMGGUswHmlauU2Hy0UL96vW0Fs/LgFbMUjD+6vqzWTldIYQ=="
-  "resolved" "https://registry.npmjs.org/ace-builds/-/ace-builds-1.4.13.tgz"
-  "version" "1.4.13"
-
 "acorn-globals@^6.0.0":
   "integrity" "sha512-ZQl7LOWaF5ePqqcX4hLuv/bLXYQNfNWw2c0/yX/TsPRKamzHcTGQnlCjHT3TsmkOUVEPS3crCxiPfdzE/Trlhg=="
   "resolved" "https://registry.npmjs.org/acorn-globals/-/acorn-globals-6.0.0.tgz"
@@ -4316,11 +4311,6 @@
   dependencies:
     "address" "^1.0.1"
     "debug" "^2.6.0"
-
-"diff-match-patch@^1.0.5":
-  "integrity" "sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw=="
-  "resolved" "https://registry.npmjs.org/diff-match-patch/-/diff-match-patch-1.0.5.tgz"
-  "version" "1.0.5"
 
 "diff-sequences@^26.6.2":
   "integrity" "sha512-Mv/TDa3nZ9sbc5soK+OoA74BsS3mL37yixCvUAQkiuA4Wz6YtwP/K47n2rv2ovzHZvoiQeA5FTQOschKkEwB0Q=="
@@ -7317,16 +7307,6 @@
   "resolved" "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   "version" "4.0.8"
 
-"lodash.get@^4.4.2":
-  "integrity" "sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk="
-  "resolved" "https://registry.npmjs.org/lodash.get/-/lodash.get-4.4.2.tgz"
-  "version" "4.4.2"
-
-"lodash.isequal@^4.5.0":
-  "integrity" "sha1-QVxEePK8wwEgwizhDtMib30+GOA="
-  "resolved" "https://registry.npmjs.org/lodash.isequal/-/lodash.isequal-4.5.0.tgz"
-  "version" "4.5.0"
-
 "lodash.memoize@^4.1.2":
   "integrity" "sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4="
   "resolved" "https://registry.npmjs.org/lodash.memoize/-/lodash.memoize-4.1.2.tgz"
@@ -9374,17 +9354,6 @@
     "iconv-lite" "0.4.24"
     "unpipe" "1.0.0"
 
-"react-ace@^9.5.0":
-  "integrity" "sha512-4l5FgwGh6K7A0yWVMQlPIXDItM4Q9zzXRqOae8KkCl6MkOob7sC1CzHxZdOGvV+QioKWbX2p5HcdOVUv6cAdSg=="
-  "resolved" "https://registry.npmjs.org/react-ace/-/react-ace-9.5.0.tgz"
-  "version" "9.5.0"
-  dependencies:
-    "ace-builds" "^1.4.13"
-    "diff-match-patch" "^1.0.5"
-    "lodash.get" "^4.4.2"
-    "lodash.isequal" "^4.5.0"
-    "prop-types" "^15.7.2"
-
 "react-app-polyfill@^2.0.0":
   "integrity" "sha512-0sF4ny9v/B7s6aoehwze9vJNWcmCemAUYBVasscVr92+UYiEqDXOxfKjXN685mDaMRNF3WdhHQs76oTODMocFA=="
   "resolved" "https://registry.npmjs.org/react-app-polyfill/-/react-app-polyfill-2.0.0.tgz"
@@ -9440,7 +9409,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@*", "react-dom@^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>=16":
+"react-dom@*", "react-dom@^0.14.0 || ^15.0.0 || ^16.0.0", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>=16":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -9568,7 +9537,7 @@
   dependencies:
     "@emotion/react" "^11.1.4"
 
-"react@*", "react@^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0", "react@^17.0.1", "react@^17.0.2", "react@>= 16", "react@>=16", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0", "react@^17.0.1", "react@^17.0.2", "react@>= 16", "react@>=16", "react@>=16.8.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

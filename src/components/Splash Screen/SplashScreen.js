@@ -7,7 +7,7 @@ const Preloader = () => (
     <img
       className={preload.logo}
       src={`${process.env.PUBLIC_URL}/assets/main-logo.png`}
-      alt=""
+      alt="Loading ..."
       height="150rem"
     />
     <br />

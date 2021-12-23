@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint no-unused-vars: 0 */
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
@@ -10,7 +11,7 @@ import 'codemirror/theme/eclipse.css';
 import 'codemirror/theme/dracula.css';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/python/python';
-import { useTheme } from '../reducer/context/Themeprovider';
+import { useTheme } from '../context/Providers/Themeprovider';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
@@ -22,12 +23,24 @@ const LeftContainer = ({
   const [mode, setMode] = useState(ext);
   const { theme } = useTheme();
 
-  // set the language mode
+  useEffect(() => {
+    setTimeout(() => {
+      setCode(pre);
+    }, 0.5);
+  }, [pre]);
+
+  // set the language mode as per the file extension
   const setLanguageMode = () => {
     switch (ext) {
-      case 'cpp': setMode('text/x-c++src'); break;
-      case 'java': setMode('text/x-java'); break;
-      case 'py': setMode('text/x-python'); break;
+      case 'cpp':
+        setMode('text/x-c++src');
+        break;
+      case 'java':
+        setMode('text/x-java');
+        break;
+      case 'py':
+        setMode('text/x-python');
+        break;
       default:
     }
   };
@@ -43,18 +56,16 @@ const LeftContainer = ({
       const text = ev.target.result;
       setFileInput(text);
     };
-
     reader.readAsText(e.target.files[0]);
   };
 
   useEffect(() => {
-    // console.log('File', fileinput);
     setCode(fileinput);
   }, [fileinput]);
 
   const hiddenFileInput = useRef(null);
 
-  const handleClick = (event) => {
+  const handleClick = () => {
     hiddenFileInput.current.click();
   };
   const downloadTxtFile = () => {
