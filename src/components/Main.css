@@ -56,6 +56,10 @@
   color: var(--lighttext);
 }
 
+.file__name{
+  padding: 0.625rem;
+}
+
 .btn {
   border: none;
   padding: 0.5rem 1rem;
