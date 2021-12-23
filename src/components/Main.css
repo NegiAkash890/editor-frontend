@@ -92,8 +92,14 @@ form {
 
 /* ----- codemirror classes ----- */
 
+.CodeMirror {
+  min-height: 40vh;
+  max-height: 40vh;
+}
+
 .CodeMirror * {
   font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
 }
 
 .code-mirror-wrapper {
@@ -253,5 +259,13 @@ form {
     left: 35%;
     top: 30%;
   }
+
+  /* ----- codemirror class ----- */
+
+  .CodeMirror * {
+    font-size: 13px;
+  }
+
+  /* --------- */
 
 }

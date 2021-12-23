@@ -9,6 +9,7 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  z-index: 999;
 }
 
 .info__section {

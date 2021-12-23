@@ -4,4 +4,6 @@
     background: #f7f7ff;
     border: 2px solid gray;
     cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
 }
