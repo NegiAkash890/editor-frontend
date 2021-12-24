@@ -12,14 +12,18 @@ const Main = () => {
   const [intial, setIntial] = useState('');
   const [loading, setLoading] = useState('false');
   const { theme } = useTheme();
+  const [disable, setDisable] = useState(false);
 
   const updateOutput = (res, type) => {
     if (type === 'clear') {
       setOutput('Console Cleared');
+      setDisable(true);
     } else if (type === 'error') {
+      setDisable(false);
       setError(true);
       setOutput(res.data.result.output);
     } else {
+      setDisable(false);
       setOutput(res.data.result.output);
     }
   };
@@ -55,6 +59,7 @@ const Main = () => {
           loading={loading}
           updateOutput={updateOutput}
           error={error}
+          disable={disable}
         />
       </div>
     </div>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useTheme } from '../reducer/context/Themeprovider';
 
 const RightContainer = ({
-  output, loading, updateOutput, error,
+  output, loading, updateOutput, error, disable,
 }) => {
   const { theme } = useTheme();
 
@@ -20,6 +20,7 @@ const RightContainer = ({
             className="btn"
             type="button"
             onClick={() => updateOutput('Console Cleared', 'clear')}
+            disabled={disable}
           >
             <img
               title="Clear Terminal"
@@ -53,8 +54,9 @@ const RightContainer = ({
 };
 RightContainer.propTypes = {
   output: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired,
+  loading: PropTypes.string.isRequired,
   updateOutput: PropTypes.func.isRequired,
   error: PropTypes.bool.isRequired,
+  disable: PropTypes.bool.isRequired,
 };
 export default RightContainer;
