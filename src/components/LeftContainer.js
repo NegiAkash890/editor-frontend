@@ -86,7 +86,7 @@ const LeftContainer = ({
     setInput(e.target.value);
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     updateLoading('true');
     const data = {
       language: ext,
@@ -194,6 +194,11 @@ const LeftContainer = ({
               mode,
               theme: theme === 'light' ? 'eclipse' : 'dracula',
               lineNumbers: true,
+              extraKeys: {
+                'Ctrl-Space': (event) => {
+                  handleSubmit(event);
+                },
+              },
             }}
           />
           {/* textarea for Input Data */}
