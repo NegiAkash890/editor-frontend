@@ -21,6 +21,9 @@ class Main
 const pythonBoilerCode = `# Python code Here \n
 print('Hello world')`;
 
+const javascriptBoilerCode = `// Javascript code Here \n
+console.log('Hello world')`;
+
 const BoilerplateReducer = (prevCode, { type }) => {
   switch (type) {
     case 'CPP':
@@ -29,6 +32,8 @@ const BoilerplateReducer = (prevCode, { type }) => {
       return pythonBoilerCode;
     case 'JAVA':
       return javaBoilerCode;
+    case 'JAVASCRIPT':
+      return javascriptBoilerCode;
     default:
       return cppBoilerCode;
   }

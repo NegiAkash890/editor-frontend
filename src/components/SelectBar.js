@@ -30,6 +30,13 @@ const SelectBar = ({ changeLanguage }) => {
         );
         setLang('py');
         break;
+      case 'js':
+        e.target.setAttribute(
+          'src',
+          `${process.env.PUBLIC_URL}/assets/js-active.png`,
+        );
+        setLang('js');
+        break;
       default:
     }
     changeLanguage(value);
@@ -73,6 +80,19 @@ const SelectBar = ({ changeLanguage }) => {
         onClick={(e) => {
           setBoilerplateCode({ type: 'PYTHON' });
           handleClick(e, 'py');
+        }}
+      />
+      <img
+        src={
+          lang === 'js'
+            ? `${process.env.PUBLIC_URL}/assets/js-active.png`
+            : `${process.env.PUBLIC_URL}/assets/js-inactive.png`
+        }
+        alt="Javascript"
+        width="60px"
+        onClick={(e) => {
+          setBoilerplateCode({ type: 'JAVASCRIPT' });
+          handleClick(e, 'js');
         }}
       />
     </div>
