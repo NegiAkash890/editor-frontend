@@ -11,6 +11,7 @@ import 'codemirror/theme/eclipse.css';
 import 'codemirror/theme/dracula.css';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/python/python';
+import 'codemirror/mode/javascript/javascript';
 import { useTheme } from '../context/Providers/Themeprovider';
 
 const LeftContainer = ({
@@ -40,6 +41,9 @@ const LeftContainer = ({
         break;
       case 'py':
         setMode('text/x-python');
+        break;
+      case 'js':
+        setMode('text/javascript');
         break;
       default:
     }
