@@ -90,7 +90,6 @@ const SelectBar = ({ changeLanguage }) => {
         }
         alt="Javascript"
         width="60px"
-        style={{ backgroundColor: lang === 'js' ? 'white' : 'initial' }}
         onClick={(e) => {
           setBoilerplateCode({ type: 'JAVASCRIPT' });
           handleClick(e, 'js');
