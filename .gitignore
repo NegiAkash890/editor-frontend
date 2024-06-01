@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+/editor-backend
+/editor-backend/node_modules
 /backend
 /backend/node_modules
 # testing
