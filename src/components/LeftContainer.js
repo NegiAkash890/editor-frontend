@@ -89,6 +89,7 @@ const LeftContainer = ({
   const takeInput = (e) => {
     setInput(e.target.value);
   };
+
   const handleSubmit = (e) => {
     // e.preventDefault();
     updateLoading('true');
@@ -102,12 +103,14 @@ const LeftContainer = ({
       .post('https://editor-backend-v1.herokuapp.com/compile', data)
       .then((res) => {
         updateLoading('false');
-        if (res.data.result.output.search('error') !== -1) {
-          return updateOutput(res, 'error');
+        if (res.data.result.stderr) {
+          return updateOutput(res.data.result.stderr, 'error');
         }
-        return updateOutput(res, 'response');
+        return updateOutput(res.data.result.stdout, 'response');
       })
-      .catch((err) => updateOutput(err, 'error'));
+      .catch((err) => {
+        updateOutput(err, 'error');
+      });
   };
 
   return (
@@ -147,8 +150,7 @@ const LeftContainer = ({
         </div>
       </div>
       <div
-        className={`code__body ${
-          theme === 'light' ? 'code__body_light-mode' : ''
+        className={`code__body ${theme === 'light' ? 'code__body_light-mode' : ''
         }`}
       >
         <div className="logger__head_left">
@@ -210,8 +212,7 @@ const LeftContainer = ({
             placeholder="Input the Data Here"
             spellCheck="false"
             onChange={takeInput}
-            className={`input__block ${
-              theme === 'light' ? 'input__block_light-mode' : ''
+            className={`input__block ${theme === 'light' ? 'input__block_light-mode' : ''
             }`}
             default={input}
           />

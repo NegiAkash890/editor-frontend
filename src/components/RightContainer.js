@@ -39,7 +39,9 @@ const RightContainer = ({
         <div
           className={`output ${theme === 'light' ? 'output_light-mode' : ''}`}
         >
-          {output}
+          <pre>
+            {output}
+          </pre>
         </div>
         <Loader
           className="loader"
