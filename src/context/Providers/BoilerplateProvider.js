@@ -1,5 +1,5 @@
 import {
-  createContext, useContext, useReducer, useEffect,
+  React, createContext, useContext, useReducer, useEffect, useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
 import BoilerplateReducer from '../reducers/BoilerplateReducer';
@@ -8,19 +8,20 @@ const BoilerPlateContext = createContext();
 
 export const BoilerplateProvider = ({ children }) => {
   const [boilerplateCode, setBoilerplateCode] = useReducer(BoilerplateReducer, '');
+  const boilerplateContextValue = useMemo(() => ({
+    boilerplateCode, setBoilerplateCode,
+  }));
 
   useEffect(() => {
     setBoilerplateCode({ type: 'CPP' });
   }, []);
 
   return (
-    /* eslint-disable */
     <BoilerPlateContext.Provider
-      value={{ boilerplateCode, setBoilerplateCode }}
+      value={boilerplateContextValue}
     >
       {children}
     </BoilerPlateContext.Provider>
-    /* eslint-enable */
   );
 };
 

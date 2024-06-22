@@ -58,8 +58,9 @@ const LeftContainer = ({
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/')
-      .then((_) => console.log('Ping'));
+      .get('https://main--editor-backend-compile.netlify.app/.netlify/functions/api')
+      .then((_) => console.log('Ping'))
+      .catch((error) => console.error('Error:', error));
   }, []);
 
   const showFile = (e) => {
@@ -98,7 +99,7 @@ const LeftContainer = ({
     };
 
     axios
-      .post('http://localhost:8080/compile', data)
+      .post('https://main--editor-backend-compile.netlify.app/.netlify/functions/api/compile', data)
       .then((res) => {
         updateLoading('false');
         if (res.data.result.stderr) {

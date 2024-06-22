@@ -55,9 +55,11 @@ const RightContainer = ({
     </div>
   );
 };
+
 RightContainer.propTypes = {
   output: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   updateOutput: PropTypes.func.isRequired,
 };
+
 export default RightContainer;

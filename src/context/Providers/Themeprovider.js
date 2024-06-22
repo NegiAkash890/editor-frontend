@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import ThemeReducer from '../reducers/ThemeReducer';
 
 const ThemeContext = createContext();
+
 export const ThemeProvider = ({ children }) => {
   const [themePreference, setThemePreference] = useReducer(ThemeReducer, 'light');
   const themeContentValue = useMemo(() => ({
@@ -18,7 +19,7 @@ export const ThemeProvider = ({ children }) => {
     }
   }, []);
 
-  useEffect(() => localStorage.setItem('theme', themePreference), []);
+  useEffect(() => localStorage.setItem('theme', themePreference), [themePreference]);
 
   return (
     <ThemeContext.Provider value={themeContentValue}>
@@ -26,7 +27,9 @@ export const ThemeProvider = ({ children }) => {
     </ThemeContext.Provider>
   );
 };
+
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
 export const useTheme = () => useContext(ThemeContext);
