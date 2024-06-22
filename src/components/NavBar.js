@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import { useTheme } from '../context/Providers/Themeprovider';
-import PopupText from './Popup';
-import ThemeToggler from './ThemeToggler/ThemeToggler';
+import PopupText from './Popup/index';
+import ThemeToggler from './ThemeToggler/index';
 
 const NavBar = () => {
   const { theme } = useTheme();

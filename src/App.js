@@ -3,7 +3,7 @@ import Footer from './components/Footer';
 import Main from './components/Main';
 import NavBar from './components/NavBar';
 import './App.css';
-import Preloader from './components/Splash Screen/SplashScreen';
+import Preloader from './components/SplashScreen';
 
 const App = () => {
   // Loading state
