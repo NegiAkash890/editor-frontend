@@ -20,9 +20,9 @@ const Main = () => {
       setOutput('Console Cleared');
     } else if (type === 'error') {
       setError(true);
-      setOutput(res.data.result.output);
+      setOutput(res);
     } else {
-      setOutput(res.data.result.output);
+      setOutput(res);
     }
   };
 

@@ -1,33 +1,35 @@
 import React, {
-  createContext, useContext, useEffect, useReducer,
+  createContext, useContext, useEffect, useMemo, useReducer,
 } from 'react';
 import PropTypes from 'prop-types';
 import ThemeReducer from '../reducers/ThemeReducer';
 
 const ThemeContext = createContext();
+
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useReducer(ThemeReducer, 'light');
+  const [themePreference, setThemePreference] = useReducer(ThemeReducer, 'light');
+  const themeContentValue = useMemo(() => ({
+    theme: themePreference, setTheme: setThemePreference,
+  }));
 
   useEffect(() => {
-    const currTheme = localStorage.getItem('theme');
-    if (currTheme) {
-      setTheme({ type: 'TOGGLE_THEME', payload: { theme: currTheme } });
+    const currentActiveTheme = localStorage.getItem('theme');
+    if (currentActiveTheme) {
+      setThemePreference({ type: 'TOGGLE_THEME', payload: { theme: currentActiveTheme } });
     }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  });
+  useEffect(() => localStorage.setItem('theme', themePreference), [themePreference]);
 
   return (
-    /* eslint-disable */
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={themeContentValue}>
       {children}
     </ThemeContext.Provider>
-    /* eslint-enable */
   );
 };
+
 ThemeProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
 export const useTheme = () => useContext(ThemeContext);

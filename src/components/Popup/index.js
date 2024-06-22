@@ -1,7 +1,7 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import './Popup.css';
+import styles from './index.module.css';
 
 const PopUpText = () => (
   <Popup
@@ -16,14 +16,14 @@ const PopUpText = () => (
     nested
   >
     {(close) => (
-      <div className="modal">
+      <div className={styles.modal}>
         <div className="modal__header">
-          <div className="header"> Info Section </div>
-          <button className="close" onClick={close} type="button">
+          <div className={styles.header}> Info Section </div>
+          <button className={styles.close} onClick={close} type="button">
             &times;
           </button>
         </div>
-        <div className="content">
+        <div className={styles.content}>
           {' '}
           <p>Welcome to Online Compiler</p>
           <p>
@@ -43,13 +43,11 @@ const PopUpText = () => (
             <b>issue.</b>
           </p>
         </div>
-        <div className="actions">
+        <div className={styles.actions}>
           <button
             type="button"
-            className="button"
-            onClick={() => {
-              close();
-            }}
+            className={styles.button}
+            onClick={close}
           >
             <a href="https://github.com/NegiAkash890/editor-backend">
               <img
@@ -68,11 +66,11 @@ const PopUpText = () => (
 export const BoundedTooltip = () => (
   <div
     style={{ height: 200, width: 400, border: '1px solid red' }}
-    className="tooltipBoundary"
+    className={styles.tooltipBoundary}
   >
     <Popup
       trigger={(
-        <button type="button" className="button">
+        <button type="button" className={styles.button}>
           Trigger 1
         </button>
       )}

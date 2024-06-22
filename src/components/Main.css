@@ -12,9 +12,10 @@
   flex-direction: column;
 }
 
-.select__bar > img {
+.select__bar>img {
   margin-top: 1.875rem;
 }
+
 /* Main Component */
 
 .main__container {
@@ -56,7 +57,7 @@
   color: var(--lighttext);
 }
 
-.file__name{
+.file__name {
   padding: 0.625rem;
 }
 
@@ -126,6 +127,7 @@ form {
   background-color: var(--darkerLight);
   color: var(--darktext);
 }
+
 .input__block {
   min-height: 8vh;
   max-height: 8vh;
@@ -222,7 +224,7 @@ form {
     margin-top: 2.2rem;
   }
 
-  .select__bar > img {
+  .select__bar>img {
     width: 30px;
     margin-right: 2rem;
   }
