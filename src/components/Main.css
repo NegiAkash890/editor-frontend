@@ -33,7 +33,7 @@
 .left__container {
   flex-basis: 50%;
   border: 0.3px solid rgba(167, 167, 167, 0.39);
-  max-height: 85vh;
+  height: 100%;
 }
 
 .content__area {
@@ -87,14 +87,14 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 1.875rem auto;
+  margin-top: 1.875rem;
 }
 
 /* ----- codemirror classes ----- */
 
 .CodeMirror {
   min-height: 40vh;
-  max-height: 40vh;
+  max-height: 45vh;
 }
 
 .CodeMirror * {
@@ -149,6 +149,11 @@ form {
   background-color: var(--darkPanel);
 }
 
+.logger__head_left > .tooltipBoundary{
+  display: flex;
+  align-items: center;
+}
+
 .logger__heading {
   padding: 0.5rem;
 }
@@ -170,8 +175,8 @@ form {
   border-radius: 3px;
   margin: 1.25rem;
   background-color: var(--lighterDark);
-  min-height: 50vh;
-  max-height: 50vh;
+  height:70vh;
+  max-height: max-content;
   margin-top: 1.5rem;
   transition: 0.2s ease;
 }
@@ -185,6 +190,12 @@ form {
   font-size: 18px;
   padding: 0.563rem;
   transition: 0.2s ease;
+  height: 100%;
+}
+
+.output > pre{
+  text-wrap: wrap;
+  white-space: pre-wrap;
 }
 
 .output_light-mode {
@@ -248,6 +259,7 @@ form {
 
   .logger__head_right {
     margin: 1rem;
+    height: 50vh;
   }
 
   .logger__heading {
@@ -258,6 +270,9 @@ form {
     position: absolute;
     left: 35%;
     top: 30%;
+  }
+  .CodeMirror{
+    max-height: 40vh;
   }
 
   /* ----- codemirror class ----- */

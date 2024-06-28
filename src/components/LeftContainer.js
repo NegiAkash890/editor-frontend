@@ -12,17 +12,20 @@ import 'codemirror/theme/dracula.css';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/python/python';
 import 'codemirror/mode/javascript/javascript';
+import 'codemirror/addon/edit/closebrackets';
 import { useTheme } from '../context/Providers/Themeprovider';
+import { useBoilerplate } from '../context/Providers/BoilerplateProvider';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
 }) => {
   const [copied, setCopied] = useState(false);
-  const [code, setCode] = useState(pre);
+  const [code, setCode] = useState();
   const [input, setInput] = useState(null);
   const [fileinput, setFileInput] = useState();
   const [mode, setMode] = useState(ext);
   const { theme } = useTheme();
+  const { boilerplateCode } = useBoilerplate();
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,23 +33,34 @@ const LeftContainer = ({
     }, 0.5);
   }, [pre]);
 
+  useEffect(() => {
+    if (localStorage.getItem(mode)) {
+      setCode(localStorage.getItem(mode));
+    }
+  }, [mode]);
+
   // set the language mode as per the file extension
   const setLanguageMode = () => {
+    let newMode = '';
     switch (ext) {
       case 'cpp':
-        setMode('text/x-c++src');
+        newMode = 'text/x-c++src';
         break;
       case 'java':
-        setMode('text/x-java');
+        newMode = 'text/x-java';
         break;
       case 'py':
-        setMode('text/x-python');
+        newMode = 'text/x-python';
         break;
       case 'js':
-        setMode('text/javascript');
+        newMode = 'text/javascript';
         break;
       default:
     }
+    setMode((prevMode) => {
+      localStorage.setItem(prevMode, code);
+      return newMode;
+    });
   };
 
   useEffect(() => {
@@ -90,6 +104,10 @@ const LeftContainer = ({
     setInput(e.target.value);
   };
 
+  const handleResetCode = () => {
+    localStorage.removeItem(mode);
+    setCode(boilerplateCode);
+  };
   const handleSubmit = (e) => {
     // e.preventDefault();
     updateLoading('true');
@@ -158,6 +176,16 @@ const LeftContainer = ({
           <div className="tooltipBoundary">
             <button className="btn" type="button">
               <img
+                src={`${process.env.PUBLIC_URL}/assets/reset.png`}
+                title="Reset"
+                alt="Reset Code"
+                width="26px"
+                style={{ marginRight: '-15px' }}
+                onClick={handleResetCode}
+              />
+            </button>
+            <button className="btn" type="button">
+              <img
                 title="Download"
                 src={`${process.env.PUBLIC_URL}/assets/download.png`}
                 alt="Submit Code"
@@ -205,6 +233,11 @@ const LeftContainer = ({
                   handleSubmit(event);
                 },
               },
+              smartIndent: true,
+              indentWithTabs: true,
+              tabSize: 2,
+              indentUnit: 4,
+              autoCloseBrackets: true,
             }}
           />
           {/* textarea for Input Data */}
