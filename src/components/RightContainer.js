@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useTheme } from '../context/Providers/Themeprovider';
 
 const RightContainer = ({
-  output, loading, updateOutput, error,
+  output, loading, updateOutput,
 }) => {
   const { theme } = useTheme();
 
@@ -55,10 +55,11 @@ const RightContainer = ({
     </div>
   );
 };
+
 RightContainer.propTypes = {
   output: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   updateOutput: PropTypes.func.isRequired,
-  error: PropTypes.bool.isRequired,
 };
+
 export default RightContainer;

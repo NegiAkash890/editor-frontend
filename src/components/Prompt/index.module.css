@@ -1,0 +1,33 @@
+.modal{
+    padding: 1.5rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+}
+.header{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: #8a2be2;
+}
+.close{
+    margin-right: 0;
+    padding: 0 0.5rem;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+}
+.actions{
+    display: flex;
+    column-gap: 1.5rem;
+}
+.button{
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+}

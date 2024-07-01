@@ -14,16 +14,20 @@ import 'codemirror/mode/python/python';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/addon/edit/closebrackets';
 import { useTheme } from '../context/Providers/Themeprovider';
+import downloadFile from '../utils/downloadFile';
+import defaultConfig from '../utils/controlledEditorConfig';
 import { useBoilerplate } from '../context/Providers/BoilerplateProvider';
+import ResetPrompt from './Prompt';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
 }) => {
-  const [copied, setCopied] = useState(false);
-  const [code, setCode] = useState();
-  const [input, setInput] = useState(null);
+  const [_copied, setCopied] = useState(false);
+  const [code, setCode] = useState(pre);
+  const [defaultTextAreaInput, setInput] = useState(null);
   const [fileinput, setFileInput] = useState();
   const [mode, setMode] = useState(ext);
+  const hiddenFileInput = useRef(null);
   const { theme } = useTheme();
   const { boilerplateCode } = useBoilerplate();
 
@@ -34,8 +38,9 @@ const LeftContainer = ({
   }, [pre]);
 
   useEffect(() => {
-    if (localStorage.getItem(mode)) {
-      setCode(localStorage.getItem(mode));
+    const cachedUserCode = localStorage.getItem(mode);
+    if (cachedUserCode) {
+      setCode(cachedUserCode);
     }
   }, [mode]);
 
@@ -67,10 +72,17 @@ const LeftContainer = ({
     setLanguageMode();
   }, [ext]);
 
+  useEffect(() => {
+    axios
+      .get('https://main--editor-backend-compile.netlify.app/.netlify/functions/api')
+      .then((_) => console.log('Ping'))
+      .catch((error) => console.error('Error:', error));
+  }, []);
+
   const showFile = (e) => {
     e.preventDefault();
     const reader = new FileReader();
-    reader.onload = async (ev) => {
+    reader.onload = (ev) => {
       const text = ev.target.result;
       setFileInput(text);
     };
@@ -81,44 +93,34 @@ const LeftContainer = ({
     setCode(fileinput);
   }, [fileinput]);
 
-  const hiddenFileInput = useRef(null);
-
   const handleClick = () => {
     hiddenFileInput.current.click();
   };
-  const downloadTxtFile = () => {
-    const element = document.createElement('a');
-    const file = new Blob([code], {
-      type: 'text/plain',
-    });
-    element.href = URL.createObjectURL(file);
-    const fileName = 'myCode.'.concat(ext);
-    element.download = fileName;
-    document.body.appendChild(element);
-    element.click();
-  };
-  const handleChange = (editor, data, value) => {
+
+  const downloadTxtFile = () => downloadFile(code, 'myCode', ext);
+
+  const handleControlledBeforeChangeCallBack = (_, __, value) => {
     setCode(value);
   };
-  const takeInput = (e) => {
-    setInput(e.target.value);
-  };
+
+  const handleTextAreaChange = (e) => setInput(e.target.value);
 
   const handleResetCode = () => {
     localStorage.removeItem(mode);
     setCode(boilerplateCode);
   };
+
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     updateLoading('true');
     const data = {
       language: ext,
       code,
-      input,
+      input: defaultTextAreaInput,
     };
 
     axios
-      .post('https://editor-backend-v1.herokuapp.com/compile', data)
+      .post('https://main--editor-backend-compile.netlify.app/.netlify/functions/api/compile', data)
       .then((res) => {
         updateLoading('false');
         if (res.data.result.stderr) {
@@ -131,6 +133,7 @@ const LeftContainer = ({
       });
   };
 
+  const config = defaultConfig(mode, theme, handleSubmit);
   return (
     <div className="left__container">
       <div className="header__info">
@@ -143,7 +146,7 @@ const LeftContainer = ({
         <div>
           <button className="btn" type="button" onClick={handleClick}>
             <img
-              title="Upload"
+              title="Upload Icon"
               src={`${process.env.PUBLIC_URL}/assets/upload.png`}
               alt="Upload Code"
               width="16px"
@@ -174,16 +177,8 @@ const LeftContainer = ({
         <div className="logger__head_left">
           <h3 className="logger__heading">Editor</h3>
           <div className="tooltipBoundary">
-            <button className="btn" type="button">
-              <img
-                src={`${process.env.PUBLIC_URL}/assets/reset.png`}
-                title="Reset"
-                alt="Reset Code"
-                width="26px"
-                style={{ marginRight: '-15px' }}
-                onClick={handleResetCode}
-              />
-            </button>
+            {/* Prompt for resetting the code */}
+            <ResetPrompt handleResetCode={handleResetCode} />
             <button className="btn" type="button">
               <img
                 title="Download"
@@ -219,35 +214,19 @@ const LeftContainer = ({
         <form>
           {/* code editor component */}
           <ControlledEditor
-            onBeforeChange={handleChange}
+            onBeforeChange={handleControlledBeforeChangeCallBack}
             value={code}
             className="code-mirror-wrapper"
-            options={{
-              lineWrapping: true,
-              lint: true,
-              mode,
-              theme: theme === 'light' ? 'eclipse' : 'dracula',
-              lineNumbers: true,
-              extraKeys: {
-                'Ctrl-Space': (event) => {
-                  handleSubmit(event);
-                },
-              },
-              smartIndent: true,
-              indentWithTabs: true,
-              tabSize: 2,
-              indentUnit: 4,
-              autoCloseBrackets: true,
-            }}
+            options={config}
           />
           {/* textarea for Input Data */}
           <textarea
             placeholder="Input the Data Here"
             spellCheck="false"
-            onChange={takeInput}
+            onChange={handleTextAreaChange}
             className={`input__block ${theme === 'light' ? 'input__block_light-mode' : ''
             }`}
-            default={input}
+            default={defaultTextAreaInput}
           />
         </form>
       </div>
