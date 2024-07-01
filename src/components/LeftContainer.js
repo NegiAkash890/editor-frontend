@@ -12,9 +12,12 @@ import 'codemirror/theme/dracula.css';
 import 'codemirror/mode/clike/clike';
 import 'codemirror/mode/python/python';
 import 'codemirror/mode/javascript/javascript';
+import 'codemirror/addon/edit/closebrackets';
 import { useTheme } from '../context/Providers/Themeprovider';
 import downloadFile from '../utils/downloadFile';
 import defaultConfig from '../utils/controlledEditorConfig';
+import { useBoilerplate } from '../context/Providers/BoilerplateProvider';
+import ResetPrompt from './Prompt';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
@@ -26,6 +29,7 @@ const LeftContainer = ({
   const [mode, setMode] = useState(ext);
   const hiddenFileInput = useRef(null);
   const { theme } = useTheme();
+  const { boilerplateCode } = useBoilerplate();
 
   useEffect(() => {
     setTimeout(() => {
@@ -33,23 +37,35 @@ const LeftContainer = ({
     }, 0.5);
   }, [pre]);
 
+  useEffect(() => {
+    const cachedUserCode = localStorage.getItem(mode);
+    if (cachedUserCode) {
+      setCode(cachedUserCode);
+    }
+  }, [mode]);
+
   // set the language mode as per the file extension
   const setLanguageMode = () => {
+    let newMode = '';
     switch (ext) {
       case 'cpp':
-        setMode('text/x-c++src');
+        newMode = 'text/x-c++src';
         break;
       case 'java':
-        setMode('text/x-java');
+        newMode = 'text/x-java';
         break;
       case 'py':
-        setMode('text/x-python');
+        newMode = 'text/x-python';
         break;
       case 'js':
-        setMode('text/javascript');
+        newMode = 'text/javascript';
         break;
       default:
     }
+    setMode((prevMode) => {
+      localStorage.setItem(prevMode, code);
+      return newMode;
+    });
   };
 
   useEffect(() => {
@@ -88,6 +104,11 @@ const LeftContainer = ({
   };
 
   const handleTextAreaChange = (e) => setInput(e.target.value);
+
+  const handleResetCode = () => {
+    localStorage.removeItem(mode);
+    setCode(boilerplateCode);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -156,6 +177,8 @@ const LeftContainer = ({
         <div className="logger__head_left">
           <h3 className="logger__heading">Editor</h3>
           <div className="tooltipBoundary">
+            {/* Prompt for resetting the code */}
+            <ResetPrompt handleResetCode={handleResetCode} />
             <button className="btn" type="button">
               <img
                 title="Download"

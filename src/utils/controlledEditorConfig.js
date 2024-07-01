@@ -14,6 +14,11 @@ const defaultConfig = (mode, themePreference, cb) => ({
       cb(event);
     },
   },
+  smartIndent: true,
+  indentWithTabs: true,
+  tabSize: 2,
+  indentUnit: 4,
+  autoCloseBrackets: true,
 });
 
 export default defaultConfig;
