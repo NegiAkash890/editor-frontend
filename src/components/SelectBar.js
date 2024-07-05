@@ -50,7 +50,7 @@ const SelectBar = ({ changeLanguage }) => {
             : `${process.env.PUBLIC_URL}/assets/c-inactive.png`
         }
         alt="C++"
-        width="60px"
+        width={60}
         onClick={(e) => {
           setBoilerplateCode({ type: 'CPP' });
           handleClick(e, 'cpp');
@@ -63,7 +63,7 @@ const SelectBar = ({ changeLanguage }) => {
             : `${process.env.PUBLIC_URL}/assets/java-inactive.png`
         }
         alt="JS"
-        width="60px"
+        width={60}
         onClick={(e) => {
           setBoilerplateCode({ type: 'JAVA' });
           handleClick(e, 'java');
@@ -76,7 +76,7 @@ const SelectBar = ({ changeLanguage }) => {
             : `${process.env.PUBLIC_URL}/assets/py-inactive.png`
         }
         alt="Python"
-        width="60px"
+        width={60}
         onClick={(e) => {
           setBoilerplateCode({ type: 'PYTHON' });
           handleClick(e, 'py');
@@ -89,7 +89,7 @@ const SelectBar = ({ changeLanguage }) => {
             : `${process.env.PUBLIC_URL}/assets/js-inactive.png`
         }
         alt="Javascript"
-        width="60px"
+        width={60}
         onClick={(e) => {
           setBoilerplateCode({ type: 'JAVASCRIPT' });
           handleClick(e, 'js');

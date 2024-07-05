@@ -7,8 +7,37 @@
   transition: 0.4 ease all;
 }
 
+::-webkit-scrollbar {
+  cursor: pointer;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: blueviolet;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(137, 43, 226, 0.548);
+}
+
 html{
   font-size: 16px;
+}
+
+button, img {
+  cursor: pointer;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: var(--darkPanel) ;
+  color: var(--lighttext);
 }
 
 :root{

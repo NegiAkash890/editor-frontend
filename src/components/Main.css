@@ -65,7 +65,6 @@
   border: none;
   padding: 0.5rem 1rem;
   font-size: 12px;
-  cursor: pointer;
   margin-left: 0.25px;
   background-color: var(--darkPanel);
 }
@@ -151,7 +150,7 @@ form {
   background-color: var(--darkPanel);
 }
 
-.logger__head_left > .tooltipBoundary{
+.logger__head_left > .tooltipBoundary {
   display: flex;
   align-items: center;
 }
@@ -177,7 +176,7 @@ form {
   border-radius: 3px;
   margin: 1.25rem;
   background-color: var(--lighterDark);
-  height:70vh;
+  height: 70vh;
   max-height: max-content;
   margin-top: 1.5rem;
   transition: 0.2s ease;
@@ -195,7 +194,7 @@ form {
   height: 100%;
 }
 
-.output > pre{
+.output>pre {
   text-wrap: wrap;
   white-space: pre-wrap;
 }
@@ -273,7 +272,8 @@ form {
     left: 35%;
     top: 30%;
   }
-  .CodeMirror{
+
+  .CodeMirror {
     max-height: 40vh;
   }
 

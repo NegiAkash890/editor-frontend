@@ -6,9 +6,7 @@ import './App.css';
 import Preloader from './components/SplashScreen';
 
 const App = () => {
-  // Loading state
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -16,17 +14,11 @@ const App = () => {
   }, []);
 
   return isLoading ? (
-    // If page is still loading then splash screen
     <Preloader />
   ) : (
     <div className="App">
-      {/* Landing Navigation Bar */}
       <NavBar />
-
-      {/* Main Container */}
       <Main />
-
-      {/* Footer Container */}
       <Footer />
     </div>
   );

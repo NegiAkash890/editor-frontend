@@ -1,9 +1,11 @@
 .toggler-btn{
     width: max-content;
     padding: 0.5rem;
-    background: #f7f7ff;
-    border: 2px solid gray;
-    cursor: pointer;
     border-radius: 5px;
     margin-right: 10px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }

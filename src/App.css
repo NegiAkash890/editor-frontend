@@ -23,10 +23,6 @@
   margin-left: 0.625rem;
 }
 
-img {
-  cursor: pointer;
-}
-
 .logo__info {
   display: flex;
   align-items: center;
@@ -34,27 +30,6 @@ img {
 
 #logo__name {
   margin-left: 0.625rem;
-}
-
-/* width */
-::-webkit-scrollbar {
-  cursor: pointer;
-  width: 8px;
-}
-
-/* ScrollBar Track */
-::-webkit-scrollbar-track {
-  background: black;
-}
-
-/* ScrollBar Handle */
-::-webkit-scrollbar-thumb {
-  background: blueviolet;
-}
-
-/* ScrollBar Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(137, 43, 226, 0.548);
 }
 
 /* Media Queries */
