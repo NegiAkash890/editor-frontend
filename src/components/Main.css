@@ -52,7 +52,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.625rem;
+  padding: 0.5rem 1rem;
   background-color: var(--darkPanel);
   color: var(--lighttext);
 }
@@ -64,9 +64,24 @@
 .btn {
   border: none;
   padding: 0.5rem 1rem;
-  font-size: 12px;
-  margin-left: 0.25px;
+}
+
+.btn_label {
+  margin-left: 0.1rem;
+}
+
+.btn_wt_icon {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  margin-left: 0.5rem;
+  min-width: 5rem;
   background-color: var(--darkPanel);
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .code__body {
@@ -153,6 +168,7 @@ form {
 .logger__head_left > .tooltipBoundary {
   display: flex;
   align-items: center;
+  padding: 0.25rem 0.5rem;
 }
 
 .logger__heading {
@@ -209,6 +225,9 @@ form {
   left: 40%;
 }
 
+.d-flex{
+  display: flex;
+}
 /* Media Queries */
 
 @media screen and (max-width: 600px) {

@@ -10,7 +10,6 @@ const Main = () => {
   const [output, setOutput] = useState('');
   const [lang, setLang] = useState('cpp');
   const [error, setError] = useState(false);
-  // const [intial, setIntial] = useState('');
   const [loading, setLoading] = useState(false);
   const { theme } = useTheme();
   const { boilerplateCode } = useBoilerplate();

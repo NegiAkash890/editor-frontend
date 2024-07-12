@@ -1,41 +1,53 @@
 .modal {
-    padding: 1.5rem 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 1rem;
-}
-
-.header {
-    text-align: center;
-    font-weight: 400;
-    font-size: 1.3rem;
-    color: #8a2be2;
-}
-
-.content {
-    width: 85%;
-    max-width: 500px;
-    text-align: center;
+    padding: 0.5rem;
+    border: none;
+    background-color:black;
+    color: var(--lighttext);
+    position: relative;
 }
 
 .close {
-    margin-right: 0;
-    padding: 0 0.5rem;
-    font-size: 30px;
     position: absolute;
-    top: 0.2rem;
-    right: 0.2rem;
+    right: 0;
+    top: 0px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--darkPanel);
+    color: var(--lighttext);
+    outline:hidden;
+}
+
+.heading {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+}
+
+.header {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.content {
+    padding: 0rem 2rem;
+    line-height: 1.5rem;
 }
 
 .actions {
     display: flex;
-    column-gap: 1.5rem;
+    margin: 1rem 2rem;
+    padding: 1rem;
+    color: white;
+    width: 90%;
+    align-items: center;
+    justify-content:center;
 }
 
-.button {
-    padding: 0.3rem 1rem;
-    border-radius: 5px;
-    font-size: 1rem;
+/* Media Queries */
+@media screen and (max-width: 600px) {
+    .popup-content {
+        width: 90%;
+    }
 }

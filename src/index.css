@@ -1,10 +1,10 @@
-/* Root Styles */
 * {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
   transition: 0.4 ease all;
+  outline: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -32,12 +32,26 @@ button, img {
   cursor: pointer;
 }
 
-button {
+button > * {
+  cursor: pointer;;
+}
+
+button  {
   margin: 0;
   padding: 0;
   border: none;
   background-color: var(--darkPanel) ;
   color: var(--lighttext);
+}
+
+a:hover, button:hover {
+  opacity: 0.8;
+}
+
+.popup-content {
+ border: none !important;
+ background: none !important;
+ padding: 0;
 }
 
 :root{

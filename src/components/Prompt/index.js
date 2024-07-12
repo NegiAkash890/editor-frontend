@@ -2,54 +2,46 @@ import React from 'react';
 import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
 import styles from './index.module.css';
+import Reset from '../../icons/Reset';
+
+const baseCSSStyles = {
+  background: "none",
+  border: "none",
+}
 
 const ResetPrompt = ({ handleResetCode }) => (
   <Popup
-    trigger={(
-      <button className="btn" type="button">
-        <img
-          src={`${process.env.PUBLIC_URL}/assets/reset.png`}
-          title="Reset"
-          alt="Reset Code"
-          width="24px"
-          style={{ marginRight: '-15px' }}
-        />
+  contentStyle={{...baseCSSStyles}}
+  trigger={
+    (
+      <button className="btn_wt_icon" type="button">
+        <Reset width={16} height={16}/>
+        <label className='btn_label'>Reset</label>
       </button>
-)}
+    )
+    }
+    closeOnEscape
     modal
-    nested
-    contentStyle={{
-      width: '85%', maxWidth: '500px', textAlign: 'center',
-    }}
   >
     {(close) => (
       <div className={styles.modal}>
         <button className={styles.close} onClick={close} type="button">
           &times;
         </button>
-        <div className={styles.header}> Reset Code </div>
-        <div className="content">
+        <div className={styles.heading}> Reset Code </div>
+        <div className={styles.content}>
           Are you sure you want to reset the current code? Your current written code will be lost.
         </div>
-        <div className={styles.actions}>
+        <div>
           <button
-            className={styles.button}
+            className={styles.actions}
             type="button"
             onClick={() => {
               handleResetCode();
               close();
             }}
           >
-            Reset
-          </button>
-          <button
-            className={styles.button}
-            type="button"
-            onClick={() => {
-              close();
-            }}
-          >
-            Cancel
+            Yes
           </button>
         </div>
       </div>

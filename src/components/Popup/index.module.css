@@ -1,48 +1,47 @@
-/* Modal & Popup CSS*/
 .modal {
     padding: 1rem;
+    border: none;
+    background-color:black;
+    color: var(--lighttext);
+    position: relative;
 }
 
 .close {
-    border: none;
-    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0px;
+    width: 40px;
+    height: 40px;
     background-color: var(--darkPanel);
     color: var(--lighttext);
-    padding: 0.5rem;
+    outline:hidden;
+}
+
+.heading {
+    font-size: 2rem;
+    padding: 1rem 2rem;
 }
 
 .header {
-    margin: 0px;
-}
-
-.modal__header {
+    margin-top: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.25rem;
 }
 
-.button {
+.content {
+    padding: 0rem 2rem;
+    line-height: 1.5rem;
+}
+
+.actions {
     display: flex;
-    align-items: center;
-    margin-top: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 3px;
-    background-color: #eee;
-    color: var(--lighterDark);
-    cursor: pointer;
-    outline: none;
-}
-
-#github__icon {
-    margin-left: 0.5rem;
-}
-
-b {
-    padding: 0.1rem;
-    line-height: 1.3rem;
-    color: var(--darkPanel);
+    margin: 1rem 2rem;
+    padding: 1rem;
+    color: white;
+    justify-content:center;
+    border: 1px solid white;
 }
 
 /* Media Queries */
