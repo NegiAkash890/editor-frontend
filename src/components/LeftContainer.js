@@ -3,7 +3,6 @@
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import Popup from 'reactjs-popup';
 import PropTypes from 'prop-types';
 import { Controlled as ControlledEditor } from 'react-codemirror2-react-17';
 import 'codemirror/lib/codemirror.css';
@@ -18,6 +17,10 @@ import downloadFile from '../utils/downloadFile';
 import defaultConfig from '../utils/controlledEditorConfig';
 import { useBoilerplate } from '../context/Providers/BoilerplateProvider';
 import ResetPrompt from './Prompt';
+import Upload from '../icons/Upload';
+import Play from '../icons/Play';
+import Download from '../icons/Download';
+import Copy from '../icons/Copy';
 
 const LeftContainer = ({
   pre, ext, updateOutput, updateLoading,
@@ -134,6 +137,12 @@ const LeftContainer = ({
   };
 
   const config = defaultConfig(mode, theme, handleSubmit);
+  const copyToClipBoard = () => {
+    setCopied(true);
+    setTimeout(() => {
+      setCopied((currentState) => !currentState);
+    }, 1000);
+  };
   return (
     <div className="left__container">
       <div className="header__info">
@@ -143,14 +152,10 @@ const LeftContainer = ({
             {ext}
           </span>
         </div>
-        <div>
-          <button className="btn" type="button" onClick={handleClick}>
-            <img
-              title="Upload Icon"
-              src={`${process.env.PUBLIC_URL}/assets/upload.png`}
-              alt="Upload Code"
-              width="16px"
-            />
+        <div className="d-flex">
+          <button className="btn_wt_icon" type="button" onClick={handleClick}>
+            <Upload width={16} height={16} />
+            <label className="btn_label">Upload</label>
           </button>
           <input
             type="file"
@@ -158,15 +163,9 @@ const LeftContainer = ({
             style={{ display: 'none' }}
             ref={hiddenFileInput}
           />
-          {/* Button for download & Submit */}
-          <button className="btn" type="button">
-            <img
-              title="Run"
-              src={`${process.env.PUBLIC_URL}/assets/play.png`}
-              alt="Submit Code"
-              onClick={handleSubmit}
-              width="18px"
-            />
+          <button className="btn_wt_icon" type="button" onClick={handleSubmit}>
+            <Play width={16} height={16} fill="white" />
+            <label className="btn_label">Run</label>
           </button>
         </div>
       </div>
@@ -177,49 +176,27 @@ const LeftContainer = ({
         <div className="logger__head_left">
           <h3 className="logger__heading">Editor</h3>
           <div className="tooltipBoundary">
-            {/* Prompt for resetting the code */}
             <ResetPrompt handleResetCode={handleResetCode} />
-            <button className="btn" type="button">
-              <img
-                title="Download"
-                src={`${process.env.PUBLIC_URL}/assets/download.png`}
-                alt="Submit Code"
-                onClick={downloadTxtFile}
-              />
+            <button className="btn_wt_icon" type="button" onClick={downloadTxtFile}>
+              <Download width={16} height={16} fill="white" />
+              <label className="btn_label">Download</label>
             </button>
-            <Popup
-              trigger={(
-                <button
-                  type="button"
-                  style={{ backgroundColor: 'blueviolet', border: 'none' }}
-                >
-                  <CopyToClipboard text={code} onCopy={() => setCopied(true)}>
-                    <img
-                      width="24px"
-                      src={`${process.env.PUBLIC_URL}/assets/copy.png`}
-                      alt="Copy to ClipBoard"
-                      title="Copy Code"
-                    />
-                  </CopyToClipboard>
-                </button>
-              )}
-              position={['top center', 'bottom right', 'bottom left']}
-              closeOnDocumentClick
-              keepTooltipInside=".tooltipBoundary"
-            >
-              Copied!
-            </Popup>
+
+            <CopyToClipboard text={code} onCopy={copyToClipBoard}>
+              <button className="btn_wt_icon" type="button">
+                <Copy width={16} height={16} fill="white" />
+                <label className="btn_label">{_copied ? 'Copied' : 'Copy'}</label>
+              </button>
+            </CopyToClipboard>
           </div>
         </div>
         <form>
-          {/* code editor component */}
           <ControlledEditor
             onBeforeChange={handleControlledBeforeChangeCallBack}
             value={code}
             className="code-mirror-wrapper"
             options={config}
           />
-          {/* textarea for Input Data */}
           <textarea
             placeholder="Input the Data Here"
             spellCheck="false"
