@@ -5,18 +5,18 @@ import styles from './index.module.css';
 import Reset from '../../icons/Reset';
 
 const baseCSSStyles = {
-  background: "none",
-  border: "none",
-}
+  background: 'none',
+  border: 'none',
+};
 
 const ResetPrompt = ({ handleResetCode }) => (
   <Popup
-  contentStyle={{...baseCSSStyles}}
-  trigger={
+    contentStyle={baseCSSStyles}
+    trigger={
     (
       <button className="btn_wt_icon" type="button">
-        <Reset width={16} height={16}/>
-        <label className='btn_label'>Reset</label>
+        <Reset width={16} height={16} />
+        Reset
       </button>
     )
     }

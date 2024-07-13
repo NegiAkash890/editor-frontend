@@ -10,6 +10,7 @@ const Info = (props) => (
     xmlSpace="preserve"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
+    // eslint-disable-next-line
     {...props}
   >
     <rect fill="none" height={50} width={50} />

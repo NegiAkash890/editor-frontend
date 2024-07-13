@@ -7,7 +7,7 @@ import { useTheme } from '../../context/Providers/Themeprovider';
 
 const PopUpText = () => {
   const { theme } = useTheme();
-  const accentColor = theme === "dark" ? "white" : "black";
+  const accentColor = theme === 'dark' ? 'white' : 'black';
   return (
     <Popup
       trigger={
@@ -48,7 +48,8 @@ const PopUpText = () => {
           </div>
         </div>
       )}
-    </Popup>)
+    </Popup>
+  );
 };
 
 export default PopUpText;

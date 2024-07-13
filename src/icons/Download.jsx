@@ -1,10 +1,12 @@
-import * as React from "react";
+import React from 'react';
+
 const Download = (props) => (
   <svg
     data-name="Livello 1"
     id="Livello_1"
     viewBox="0 0 128 128"
     xmlns="http://www.w3.org/2000/svg"
+    // eslint-disable-next-line
     {...props}
   >
     <title />

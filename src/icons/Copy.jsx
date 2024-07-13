@@ -1,6 +1,12 @@
-import * as React from "react";
+import * as React from 'react';
+
 const Copy = (props) => (
-  <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg
+    viewBox="0 0 256 256"
+    xmlns="http://www.w3.org/2000/svg"
+    // eslint-disable-next-line
+    {...props}
+  >
     <rect fill="none" height={256} width={256} />
     <polyline
       fill="none"

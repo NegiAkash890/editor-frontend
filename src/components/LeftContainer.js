@@ -155,7 +155,7 @@ const LeftContainer = ({
         <div className="d-flex">
           <button className="btn_wt_icon" type="button" onClick={handleClick}>
             <Upload width={16} height={16} />
-            <label className="btn_label">Upload</label>
+            Upload
           </button>
           <input
             type="file"
@@ -165,7 +165,7 @@ const LeftContainer = ({
           />
           <button className="btn_wt_icon" type="button" onClick={handleSubmit}>
             <Play width={16} height={16} fill="white" />
-            <label className="btn_label">Run</label>
+            Run
           </button>
         </div>
       </div>
@@ -179,13 +179,13 @@ const LeftContainer = ({
             <ResetPrompt handleResetCode={handleResetCode} />
             <button className="btn_wt_icon" type="button" onClick={downloadTxtFile}>
               <Download width={16} height={16} fill="white" />
-              <label className="btn_label">Download</label>
+              Download
             </button>
 
             <CopyToClipboard text={code} onCopy={copyToClipBoard}>
               <button className="btn_wt_icon" type="button">
                 <Copy width={16} height={16} fill="white" />
-                <label className="btn_label">{_copied ? 'Copied' : 'Copy'}</label>
+                {_copied ? 'Copied' : 'Copy'}
               </button>
             </CopyToClipboard>
           </div>
